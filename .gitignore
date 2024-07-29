@@ -1,0 +1,16 @@
+*.db
+.env
+venv
+*_image.png
+screenshots
+__pycache__
+*test*
+reports
+.DS_Store
+.DS_Store?
+log
+*_backup
+huggingface_dailypaper
+paper_pdf
+embedding_db
+zulip

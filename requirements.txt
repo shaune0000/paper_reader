@@ -1,0 +1,9 @@
+pypdf
+BeautifulSoup4
+tiktoken
+openai
+argparse
+langchain
+langchain-community
+faiss-cpu
+zulip
