@@ -75,15 +75,13 @@ def encode_image(image_path):
   
 def answer_question(db, question, paper_title):
     # 創建系統消息模板
-    system_template = """You are an AI assistant specialized in answering questions about scientific papers. 
-    Your task is to provide accurate and relevant information based on the paper titled "{title}".
-    If the answer cannot be found in the given context, please say "I don't have enough information to answer this question."
-    Always maintain a professional and academic tone in your responses."""
+    system_template = """你是一個專門回答有關科學論文問題的AI助手。你的任務是根據標題為《{title}》的論文提供準確且相關的信息。
+        如果在給定的上下文中找不到答案，請說‘在文獻中找不到相關的訊息來回答這個問題。’請始終保持專業和學術的語氣。"""
 
     system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
 
     # 創建人類消息模板
-    human_template = "Context: {context}\n\nQuestion: {question}"
+    human_template = "Context: {context}\n\問題: {question}"
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 
     # 組合聊天提示模板
