@@ -124,7 +124,8 @@ def parse_html_to_json(html_content):
         "papers": papers
     }
 
-    return json.dumps(result, ensure_ascii=False, indent=2)
+    # return json.dumps(result, ensure_ascii=False, indent=2)
+    return result
 
 def parse_data_to_json(data):
     
@@ -141,10 +142,11 @@ def parse_data_to_json(data):
 
     t = date.today()    
     output_file = f"./huggingface_dailypaper/{t}-huggingface_papers.json"
+    json_output['output_file'] = output_file
 
     # 将JSON写入文件
     with open(output_file, 'w', encoding='utf-8') as file:
-        file.write(json_output)
+        file.write(json.dumps(json_output, ensure_ascii=False, indent=2))
 
     print("JSON file has been created successfully.")
 

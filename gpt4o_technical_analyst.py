@@ -7,6 +7,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
+from langchain.chains.summarize import load_summarize_chain
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.prompts.chat import (
@@ -18,6 +19,7 @@ from langchain.schema.messages import HumanMessage
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain.output_parsers import StructuredOutputParser, ResponseSchema
+from langchain.schema import Document
 
 from pathlib import Path
 import logging
@@ -51,9 +53,9 @@ if not os.path.exists('./embedding_db'):
 def load_paper(pdf_path):
     loader = PyPDFLoader(pdf_path)
     pages = loader.load_and_split()
-    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     texts = text_splitter.split_documents(pages)
-    return texts
+    return texts, pages
 
 def create_embeddings_and_db(texts):
     embeddings = OpenAIEmbeddings()
@@ -71,61 +73,95 @@ def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')
   
-# def answer_question(db, question, paper_title):
-#     # 創建系統消息模板
-#     system_template = """You are an AI assistant specialized in answering questions about scientific papers. 
-#     Your task is to provide accurate and relevant information based on the paper titled "{title}".
-#     If the answer cannot be found in the given context, please say "I don't have enough information to answer this question."
-#     Always maintain a professional and academic tone in your responses."""
-
-#     system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
-
-#     # 創建人類消息模板
-#     human_template = "Context: {context}\n\nQuestion: {question}"
-#     human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
-
-#     # 組合聊天提示模板
-#     chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
-
-#     # 載入 QA 鏈
-#     chain = load_qa_chain(llm, chain_type="stuff", prompt=chat_prompt)
-
-#     # 執行相似性搜索
-#     docs = db.similarity_search(question)
-
-#     # 運行鏈並返回答案
-#     return chain.run(input_documents=docs, question=question, title=paper_title)
-
-
 def answer_question(db, question, paper_title):
+    # 創建系統消息模板
+    system_template = """You are an AI assistant specialized in answering questions about scientific papers. 
+    Your task is to provide accurate and relevant information based on the paper titled "{title}".
+    If the answer cannot be found in the given context, please say "I don't have enough information to answer this question."
+    Always maintain a professional and academic tone in your responses."""
+
+    system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
+
+    # 創建人類消息模板
+    human_template = "Context: {context}\n\nQuestion: {question}"
+    human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
+
+    # 組合聊天提示模板
+    chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
+
+    # 載入 QA 鏈
+    chain = load_qa_chain(llm, chain_type="stuff", prompt=chat_prompt)
+
+    # 執行相似性搜索
+    docs = db.similarity_search(question)
+
+    # 運行鏈並返回答案
+    return chain.run(input_documents=docs, question=question, title=paper_title)
+
+
+def sumarize_paper(texts, docs, paper_title):
     response_schemas = [
-        ResponseSchema(name="title", description="A short title (max 40 characters) summarizing the answer"),
-        ResponseSchema(name="content", description="The detailed answer to the question")
+        ResponseSchema(name="標題", description="文本標題"),
+        ResponseSchema(name="短標題", description="40個字元內的短標題"),
+        ResponseSchema(name="主題", description="列出文檔的主要主題"),
+        ResponseSchema(name="摘要", description="條列出關鍵點摘要", type="List[string]"),
+        ResponseSchema(name="分析", description="提供對文檔內容的簡短分析"),
+        ResponseSchema(name="結論", description="總結文檔的主要結論或建議"),
     ]
     output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
     format_instructions = output_parser.get_format_instructions()
 
-    system_template = """You are an AI assistant specialized in answering questions about scientific papers. 
-    Your task is to provide accurate and relevant information based on the paper titled "{title}".
-    If the answer cannot be found in the given context, please say "I don't have enough information to answer this question."
-    Always maintain a professional and academic tone in your responses.
-    {format_instructions}"""
+    system_template = """
+        你是一個專業的科學家、文檔分析助手並閱讀了很多論文。
+        你的任務是閱讀提供的文本，並生成一個結構化的摘要和分析。
+        你能夠提供正確且豐富的訊息，也能夠分析、列表及總結這篇論文的內容。
+        所有的資訊都是基於這篇論文"{title}"的內容而闡述。
+        
+        % 回應的語氣:
 
-    system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
+        - 你的回答應該以積極的語氣給出並固執己見
+        - 你的語氣應該嚴肅，帶有一絲機智和諷刺
+        - 你的回答淺顯易懂，必要時會舉出列子
+        
+        % 回應的規格:
+        
+        - 回應簡潔、清晰且信息豐富
+        - 特別注意與標題 "{title}" 相關的內容
+        - 不要用表情符號回應
+        
+        % 回應的內容:
 
-    human_template = "Context: {context}\n\nQuestion: {question}"
+        - 列出論文的目的
+        - 討論論文方法
+        - 分析改進項目或是提出貢獻內容
+        - 未來還能夠朝哪個方向前進
+        - 提出此篇論文是否存在矛盾論點
+        - 結論是否有更值得探索的議題
+
+        % 回應格式:
+            {format_instructions}
+        
+    """      
+
+    # system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
+    system_message_prompt = SystemMessagePromptTemplate.from_template(system_template, 
+                                                                      input_variables=["title", "format_instructions"])
+
+    human_template = "請分析並總結以下文本:\n\n{text}"
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 
     chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
 
-    chain = load_qa_chain(llm, chain_type="stuff", prompt=chat_prompt)
+    # get a completed chat
+    chain = load_summarize_chain(
+        llm,
+        chain_type="stuff",
+        prompt=chat_prompt,
+        document_variable_name="text"
+    )
 
-    docs = db.similarity_search(question)
-
-    result = chain.run(input_documents=docs, question=question, title=paper_title, format_instructions=format_instructions)
-    
-    print(result)
-    return output_parser.parse(result)
+    summary = chain.run({"input_documents": docs, "title": paper_title, "format_instructions": format_instructions})
+    return output_parser.parse(summary)
 
 def get_paper_embedding_db(paper_id):
     # 確定數據庫文件路徑
@@ -133,6 +169,7 @@ def get_paper_embedding_db(paper_id):
 
     # 檢查是否已經存在向量數據庫
     db = None
+    texts = None
     if os.path.exists(db_path):
         print("Loading existing vector database...")
         db = load_db(db_path)
@@ -140,13 +177,13 @@ def get_paper_embedding_db(paper_id):
         print("Creating new vector database...")
         pdf_path = f'./paper_pdf/{paper_id}.pdf'
         if os.path.exists(pdf_path):
-            texts = load_paper(pdf_path)
+            texts, _ = load_paper(pdf_path)
             db = create_embeddings_and_db(texts)
             save_db(db, db_path)                    
         else:
             return None
         
-    return db
+    return db, texts
    
 def generate_image(prompt, size="1792x1024", style = "vivid"):
     logger.info(f'[gpt] generate image with prompts: {prompt}')
