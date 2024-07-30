@@ -43,6 +43,10 @@ def fetch_huggingface_dailypapers(url = "https://huggingface.co/papers"):
     return raw_text, output_file, hash
 
 def download_pdf(url, filename):
+    if os.path.exists(filename):
+        logger.info(f'pdf已存在: {filename}')
+        return filename
+    
     response = requests.get(url)
     if response.status_code == 200:
         with open(filename, 'wb') as f:

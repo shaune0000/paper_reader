@@ -14,3 +14,5 @@ huggingface_dailypaper
 paper_pdf
 embedding_db
 zulip
+read_paper.json
+.zuliprc
