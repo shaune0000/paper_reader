@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from datetime import date, datetime, timedelta, timezone
 from urllib.parse import urlparse
 import requests
-import logging
+import logging, hashlib
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -30,6 +30,8 @@ def fetch_huggingface_dailypapers(url = "https://huggingface.co/papers"):
         # Get the raw text content
         raw_text = response.text
         
+        hash = hashlib.sha256(raw_text.encode("utf-8")).hexdigest()
+        output_file = f"./huggingface_dailypaper/{t}-huggingface_papers-{hash}.txt"
         # Save the raw text to a file
         with open(output_file, 'w', encoding='utf-8') as file:
             file.write(raw_text)
@@ -38,7 +40,7 @@ def fetch_huggingface_dailypapers(url = "https://huggingface.co/papers"):
     else:
         print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
 
-    return raw_text, output_file
+    return raw_text, output_file, hash
 
 def download_pdf(url, filename):
     response = requests.get(url)
@@ -127,7 +129,7 @@ def parse_html_to_json(html_content):
     # return json.dumps(result, ensure_ascii=False, indent=2)
     return result
 
-def parse_data_to_json(data):
+def parse_data_to_json(data, hash):
     
     html_content = data
     try: 
@@ -141,7 +143,7 @@ def parse_data_to_json(data):
     json_output = parse_html_to_json(html_content)
 
     t = date.today()    
-    output_file = f"./huggingface_dailypaper/{t}-huggingface_papers.json"
+    output_file = f"./huggingface_dailypaper/{t}-huggingface_papers-{hash}.json"
     json_output['output_file'] = output_file
 
     # 将JSON写入文件
