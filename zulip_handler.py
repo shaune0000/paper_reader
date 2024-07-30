@@ -50,6 +50,7 @@ def handle_zulip_messages():
             if sender_email == bot_email:
                 return
 
+            print(msg)
             if stream_name == 'Paper_Reader':
 
                 if 'quoted_message_id' in msg:
