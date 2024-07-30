@@ -4,6 +4,7 @@ from gpt4o_technical_analyst import get_paper_embedding_db, answer_question
 import logging
 import zulip
 from datetime import datetime, timezone
+import re
 
 logger = logging.getLogger("Huggingface daily papers")
 
@@ -53,19 +54,16 @@ def handle_zulip_messages():
             print(msg)
             if stream_name == 'Paper_Reader':
 
-                if 'quoted_message_id' in msg:
-                    # 获取被引用消息的详情
-                    quoted_message = zulip_client.get_message({'message_id': msg['quoted_message_id']})
-                    if quoted_message['sender_email'] == bot_email:
-                        quoted_content = quoted_message['content']
-                        # 提取新的问题（去除引用部分）
-                        new_question = content.split('\n\n', 1)[-1] if '\n\n' in content else content
-                        content = f"{quoted_content}\n\n{new_question}".strip()
-                        print(quoted_content, new_question)
-                        return
+                is_quote_of_bot = '@_**PaperReaderBot' in content
+                if is_quote_of_bot:
+                    # 提取新的问题（去除引用部分）
+                    match = re.search(r'```quote\n(.*?)\n```\n(.*)', content, re.DOTALL)
+                    if match:
+                        new_question = match.group(2).strip()
                     else:
-                        return
-                    
+                        new_question = content.split('```')[-1].strip()
+                print('new question', new_question)
+                return 
                 with create_connection() as conn:
                     # 步骤1: 从数据库中查找匹配的论文
                     paper = get_paper_by_zulip_topic(conn, topic)                
