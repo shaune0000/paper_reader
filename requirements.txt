@@ -7,4 +7,3 @@ langchain
 langchain-community
 faiss-cpu
 zulip
-sqlite3
