@@ -54,7 +54,7 @@ def handle_zulip_messages():
 
             if stream_name == 'Paper_Reader':
                 logger.info(f'got a message: {msg}')
-                is_quote_of_bot = '@_**PaperReaderBot' in content
+                is_quote_of_bot = '@_**PaperReaderBot**' in content or '@**PaperReaderBot**' in content
                 if is_quote_of_bot:
                     # 提取新的问题（去除引用部分）
                     match = re.search(r'```quote\n(.*?)\n```\n(.*)', content, re.DOTALL)
