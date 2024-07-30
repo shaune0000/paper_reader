@@ -46,14 +46,14 @@ def handle_zulip_messages():
             stream_name = msg['display_recipient']
             topic = msg['subject']
             message_id = msg['id']  # 获取原始消息的ID
+            sender_full_name = msg['sender_full_name']
 
             # 检查消息是否来自其他用户（不是机器人自己）
             if sender_email == bot_email:
                 return
 
-            print(msg)
             if stream_name == 'Paper_Reader':
-
+                logger.info(f'got a message: {msg}')
                 is_quote_of_bot = '@_**PaperReaderBot' in content
                 if is_quote_of_bot:
                     # 提取新的问题（去除引用部分）
@@ -62,8 +62,10 @@ def handle_zulip_messages():
                         new_question = match.group(2).strip()
                     else:
                         new_question = content.split('```')[-1].strip()
-                print('new question', new_question)
-                return 
+                else:
+                    logger.info(f'receive a message, but not the question for bot')
+                    return
+                
                 with create_connection() as conn:
                     # 步骤1: 从数据库中查找匹配的论文
                     paper = get_paper_by_zulip_topic(conn, topic)                
@@ -87,7 +89,9 @@ def handle_zulip_messages():
                         response = answer #f"关于论文 '{paper_title}' 的回答：\n\n{answer}"
 
                 # 构造引用回复
-                quoted_content = f"> {content}\n\n{response}"
+                # quoted_content = f"> {content}\n\n{response}"
+                # 构造回复内容，包括引用和 @ 标记
+                quoted_content = f"@_**{sender_full_name}** 問道：\n```quote\n{new_question}\n```\n\n{response}"
 
                 # 发送引用回复
                 zulip_client.send_message({
