@@ -51,6 +51,20 @@ def handle_zulip_messages():
                 return
 
             if stream_name == 'Paper_Reader':
+
+                if 'quoted_message_id' in msg:
+                    # 获取被引用消息的详情
+                    quoted_message = zulip_client.get_message({'message_id': msg['quoted_message_id']})
+                    if quoted_message['sender_email'] == bot_email:
+                        quoted_content = quoted_message['content']
+                        # 提取新的问题（去除引用部分）
+                        new_question = content.split('\n\n', 1)[-1] if '\n\n' in content else content
+                        content = f"{quoted_content}\n\n{new_question}".strip()
+                        print(quoted_content, new_question)
+                        return
+                    else:
+                        return
+                    
                 with create_connection() as conn:
                     # 步骤1: 从数据库中查找匹配的论文
                     paper = get_paper_by_zulip_topic(conn, topic)                
@@ -73,13 +87,6 @@ def handle_zulip_messages():
                         answer = answer_question(db, content, paper_title)
                         response = answer #f"关于论文 '{paper_title}' 的回答：\n\n{answer}"
 
-                # 发送响应到 Zulip
-                # zulip_client.send_message({
-                #     "type": "stream",
-                #     "to": stream_name,
-                #     "subject": topic,
-                #     "content": response,
-                # })
                 # 构造引用回复
                 quoted_content = f"> {content}\n\n{response}"
 
