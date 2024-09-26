@@ -1,0 +1,1162 @@
+[
+  {
+    "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2308.04079.pdf"
+  },
+  {
+    "title": "Street Gaussians for Modeling Dynamic Urban Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2401.01339.pdf"
+  },
+  {
+    "title": "TCLC-GS: Tightly Coupled LiDAR-Camera Gaussian Splatting for Surrounding Autonomous Driving Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2404.02410.pdf"
+  },
+  {
+    "title": "OmniRe: Omni Urban Scene Reconstruction",
+    "pdf_link": "https://arxiv.org/abs/2408.16760"
+  },
+  {
+    "title": "[CVPR '24] DrivingGaussian: Composite Gaussian Splatting for Surrounding Dynamic Autonomous Driving Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2312.07920.pdf"
+  },
+  {
+    "title": "[CVPR '24] HUGS: Holistic Urban 3D Scene Understanding via Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.12722.pdf"
+  },
+  {
+    "title": "GaussianBody: Clothed Human Reconstruction via 3d Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2401.09720.pdf"
+  },
+  {
+    "title": "PSAvatar: A Point-based Morphable Shape Model for Real-Time Head Avatar Creation with 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2401.12900.pdf"
+  },
+  {
+    "title": "Rig3DGS: Creating Controllable Portraits from Casual Monocular Videos",
+    "pdf_link": "https://arxiv.org/pdf/2402.03723.pdf"
+  },
+  {
+    "title": "HeadStudio: Text to Animatable Head Avatars with 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2402.06149.pdf"
+  },
+  {
+    "title": "ImplicitDeepfake: Plausible Face-Swapping through Implicit Deepfake Generation using NeRF and Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2402.06390.pdf"
+  },
+  {
+    "title": "GaussianHair: Hair Modeling and Rendering with Light-aware Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2402.10483.pdf"
+  },
+  {
+    "title": "GVA: Reconstructing Vivid 3D Gaussian Avatars from Monocular Videos",
+    "pdf_link": "https://arxiv.org/pdf/2402.16607.pdf"
+  },
+  {
+    "title": "[CVPR '24] SplattingAvatar: Realistic Real-Time Human Avatars with Mesh-Embedded Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.05087.pdf"
+  },
+  {
+    "title": "SplatFace: Gaussian Splat Face Reconstruction Leveraging an Optimizable Surface",
+    "pdf_link": "https://arxiv.org/pdf/2403.18784"
+  },
+  {
+    "title": "HAHA: Highly Articulated Gaussian Human Avatars with Textured Mesh Prior",
+    "pdf_link": "https://arxiv.org/pdf/2404.01053"
+  },
+  {
+    "title": "[CVPRW '24] Gaussian Splatting Decoder for 3D‑aware Generative Adversarial Networks",
+    "pdf_link": "https://arxiv.org/abs/2404.10625"
+  },
+  {
+    "title": "GoMAvatar: Efficient Animatable Human Modeling from Monocular Video Using Gaussians-on-Mesh",
+    "pdf_link": "https://arxiv.org/pdf/2404.07991"
+  },
+  {
+    "title": "OccGaussian: 3D Gaussian Splatting for Occluded Human Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2404.07991"
+  },
+  {
+    "title": "[CVPR '24] Guess The Unseen: Dynamic 3D Scene Reconstruction from Partial 2D Glimpses",
+    "pdf_link": "https://arxiv.org/abs/2404.14410"
+  },
+  {
+    "title": "Drivable 3D Gaussian Avatars",
+    "pdf_link": "https://arxiv.org/pdf/2311.08581.pdf"
+  },
+  {
+    "title": "SplatArmor: Articulated Gaussian splatting for animatable humans from monocular RGB videos",
+    "pdf_link": "https://arxiv.org/pdf/2311.10812.pdf"
+  },
+  {
+    "title": "[CVPR '24] Animatable Gaussians: Learning Pose-dependent Gaussian Maps for High-fidelity Human Avatar Modeling",
+    "pdf_link": "https://arxiv.org/pdf/2311.16096.pdf"
+  },
+  {
+    "title": "[CVPR '24] GART: Gaussian Articulated Template Models",
+    "pdf_link": "https://arxiv.org/pdf/2311.16099.pdf"
+  },
+  {
+    "title": "[CVPR '24] Human Gaussian Splatting: Real-time Rendering of Animatable Avatars",
+    "pdf_link": "https://arxiv.org/pdf/2311.17113.pdf"
+  },
+  {
+    "title": "[CVPR '24] HUGS: Human Gaussian Splats",
+    "pdf_link": "https://arxiv.org/pdf/2311.17910.pdf"
+  },
+  {
+    "title": "[CVPR '24] Gaussian Shell Maps for Efficient 3D Human Generation",
+    "pdf_link": "https://arxiv.org/pdf/2311.17857"
+  },
+  {
+    "title": "GaussianHead: High-fidelity Head Avatars with Learnable Gaussian Derivation",
+    "pdf_link": "https://arxiv.org/pdf/2312.01632.pdf"
+  },
+  {
+    "title": "[CVPR '24] GaussianAvatars: Photorealistic Head Avatars with Rigged 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2312.02069"
+  },
+  {
+    "title": "[CVPR '24] GPS-Gaussian: Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2312.02155.pdf"
+  },
+  {
+    "title": "GauHuman: Articulated Gaussian Splatting from Monocular Human Videos",
+    "pdf_link": "https://arxiv.org/pdf/2312.02973.pdf"
+  },
+  {
+    "title": "HeadGaS: Real-Time Animatable Head Avatars via 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.02902.pdf"
+  },
+  {
+    "title": "[CVPR '24] HiFi4G: High-Fidelity Human Performance Rendering via Compact Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.03461.pdf"
+  },
+  {
+    "title": "[CVPR '24] GaussianAvatar: Towards Realistic Human Avatar Modeling from a Single Video via Animatable 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2312.02134.pdf"
+  },
+  {
+    "title": "[CVPR '24] FlashAvatar: High-fidelity Head Avatar with Efficient Gaussian Embedding",
+    "pdf_link": "https://arxiv.org/pdf/2312.02214v2"
+  },
+  {
+    "title": "[CVPR '24] Relightable Gaussian Codec Avatars",
+    "pdf_link": "https://arxiv.org/pdf/2312.03704.pdf"
+  },
+  {
+    "title": "MonoGaussianAvatar: Monocular Gaussian Point-based Head Avatar",
+    "pdf_link": "https://arxiv.org/pdf/2312.04558.pdf"
+  },
+  {
+    "title": "[CVPR '24] ASH: Animatable Gaussian Splats for Efficient and Photoreal Human Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2312.05941.pdf"
+  },
+  {
+    "title": "[CVPR '24] 3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.09228.pdf"
+  },
+  {
+    "title": "[CVPR '24] GAvatar: Animatable 3D Gaussian Avatars with Implicit Mesh Learning",
+    "pdf_link": "https://arxiv.org/pdf/2312.11461.pdf"
+  },
+  {
+    "title": "Deformable 3D Gaussian Splatting for Animatable Human Avatars",
+    "pdf_link": "https://arxiv.org/pdf/2312.15059.pdf"
+  },
+  {
+    "title": "Human101: Training 100+FPS Human Gaussians in 100s from 1 View",
+    "pdf_link": "https://arxiv.org/pdf/2312.15258.pdf"
+  },
+  {
+    "title": "[CVPR '24] Gaussian Head Avatar: Ultra High-fidelity Head Avatar via Dynamic Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2312.03029.pdf"
+  },
+  {
+    "title": "HumanSplat: Generalizable Single-Image Human Gaussian Splatting with Structure Priors",
+    "pdf_link": "https://arxiv.org/pdf/2406.12459"
+  },
+  {
+    "title": "[I3D '24] Reducing the Memory Footprint of 3D Gaussian Splatting",
+    "pdf_link": "https://repo-sam.inria.fr/fungraph/reduced_3dgs/reduced_3DGS_i3d.pdf"
+  },
+  {
+    "title": "[CVPR '24] Compressed 3D Gaussian Splatting for Accelerated Novel View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2401.02436.pdf"
+  },
+  {
+    "title": "HAC: Hash-grid Assisted Context for 3D Gaussian Splatting Compression",
+    "pdf_link": "https://arxiv.org/pdf/2401.02436.pdf"
+  },
+  {
+    "title": "[ECCV '24] End-to-End Rate-Distortion Optimized 3D Gaussian Representation",
+    "pdf_link": "https://arxiv.org/pdf/2406.01597.pdf"
+  },
+  {
+    "title": "3DGS.zip: A survey on 3D Gaussian Splatting Compression Methods",
+    "pdf_link": "https://arxiv.org/abs/2407.09510"
+  },
+  {
+    "title": "LapisGS: Layered Progressive 3D Gaussian Splatting for Adaptive Streaming",
+    "pdf_link": "http://arxiv.org/abs/2408.14823"
+  },
+  {
+    "title": "LightGaussian: Unbounded 3D Gaussian Compression with 15x Reduction and 200+ FPS",
+    "pdf_link": "https://arxiv.org/pdf/2311.17245.pdf"
+  },
+  {
+    "title": "Compact3D: Compressing Gaussian Splat Radiance Field Models with Vector Quantization",
+    "pdf_link": "https://arxiv.org/pdf/2311.18159.pdf"
+  },
+  {
+    "title": "[CVPR '24] Compact 3D Gaussian Representation for Radiance Field",
+    "pdf_link": "https://arxiv.org/pdf/2311.13681.pdf"
+  },
+  {
+    "title": "[ECCV '24] Compact 3D Scene Representation via Self-Organizing Gaussian Grids",
+    "pdf_link": "https://arxiv.org/pdf/2312.13299.pdf"
+  },
+  {
+    "title": "AGG: Amortized Generative 3D Gaussians for Single Image to 3D",
+    "pdf_link": "https://arxiv.org/pdf/2401.04099.pdf"
+  },
+  {
+    "title": "Fast Dynamic 3D Object Generation from a Single-view Video",
+    "pdf_link": "https://arxiv.org/pdf/2401.08742.pdf"
+  },
+  {
+    "title": "GaussianObject: Just Taking Four Images to Get A High-Quality 3D Object with Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2402.10259.pdf"
+  },
+  {
+    "title": "LGM: Large Multi-View Gaussian Model for High-Resolution 3D Content Creation",
+    "pdf_link": "https://arxiv.org/pdf/2402.05054.pdf"
+  },
+  {
+    "title": "GALA3D: Towards Text-to-3D Complex Scene Generation via Layout-guided Generative Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2402.07207.pdf"
+  },
+  {
+    "title": "IM-3D: Iterative Multiview Diffusion and Reconstruction for High-Quality 3D Generation",
+    "pdf_link": "https://arxiv.org/pdf/2402.08682.pdf"
+  },
+  {
+    "title": "Controllable Text-to-3D Generation via Surface-Aligned Gaussian Splatting",
+    "pdf_link": "https://lizhiqi49.github.io/MVControl/assets/paper.pdf"
+  },
+  {
+    "title": "Hyper-3DG:Text-to-3D Gaussian Generation via Hypergraph",
+    "pdf_link": "https://arxiv.org/pdf/2403.09236.pdf"
+  },
+  {
+    "title": "DreamScene: 3D Gaussian-based Text-to-3D Scene Generation via Formation Pattern Sampling",
+    "pdf_link": "https://arxiv.org/pdf/2404.03575.pdf"
+  },
+  {
+    "title": "FDGaussian: Fast Gaussian Splatting from Single Image via Geometric-aware Diffusion Model",
+    "pdf_link": "https://arxiv.org/pdf/2403.10242.pdf"
+  },
+  {
+    "title": "BAGS: Building Animatable Gaussian Splatting from a Monocular Video with Diffusion Priors",
+    "pdf_link": "https://arxiv.org/pdf/2403.11427"
+  },
+  {
+    "title": "BrightDreamer: Generic 3D Gaussian Generative Framework for Fast Text-to-3D Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2403.11273"
+  },
+  {
+    "title": "GVGEN: Text-to-3D Generation with Volumetric Representation",
+    "pdf_link": "https://arxiv.org/pdf/2403.12957"
+  },
+  {
+    "title": "SyncTweedies: A General Generative Framework Based on Synchronized Diffusions",
+    "pdf_link": "https://arxiv.org/pdf/2403.14370"
+  },
+  {
+    "title": "STAG4D: Spatial-Temporal Anchored Generative 4D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2403.14939"
+  },
+  {
+    "title": "Comp4D: LLM-Guided Compositional 4D Scene Generation",
+    "pdf_link": "https://arxiv.org/pdf/2403.16993.pdf"
+  },
+  {
+    "title": "DreamPolisher: Towards High-Quality Text-to-3D Generation via Geometric Diffusion",
+    "pdf_link": "https://arxiv.org/pdf/2403.17237"
+  },
+  {
+    "title": "SC4D: Sparse-Controlled Video-to-4D Generation and Motion Transfer",
+    "pdf_link": "https://arxiv.org/pdf/2404.03736"
+  },
+  {
+    "title": "Hash3D: Training-free Acceleration for 3D Generation",
+    "pdf_link": "https://arxiv.org/pdf/2404.06091"
+  },
+  {
+    "title": "Zero-shot Point Cloud Completion Via 2D Priors",
+    "pdf_link": "https://arxiv.org/pdf/2404.06814"
+  },
+  {
+    "title": "[ECCV '24] DreamScene360: Unconstrained Text-to-3D Scene Generation with Panoramic Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.06903"
+  },
+  {
+    "title": "RealmDreamer: Text-Driven 3D Scene Generation with Inpainting and Depth Diffusion",
+    "pdf_link": "https://arxiv.org/pdf/2404.07199"
+  },
+  {
+    "title": "GaussianCube: A Structured and Explicit Radiance Representation for 3D Generative Modeling",
+    "pdf_link": "https://arxiv.org/pdf/2403.19655.pdf"
+  },
+  {
+    "title": "4Real: Towards Photorealistic 4D Scene Generation via Video Diffusion Models",
+    "pdf_link": "https://arxiv.org/pdf/2406.07472.pdf"
+  },
+  {
+    "title": "[CVPR '24] Text-to-3D using Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2309.16585.pdf"
+  },
+  {
+    "title": "DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation",
+    "pdf_link": "https://arxiv.org/pdf/2309.16653.pdf"
+  },
+  {
+    "title": "GaussianDreamer: Fast Generation from Text to 3D Gaussian Splatting with Point Cloud Priors",
+    "pdf_link": "https://arxiv.org/pdf/2310.08529.pdf"
+  },
+  {
+    "title": "GaussianDiffusion: 3D Gaussian Splatting for Denoising Diffusion Probabilistic Models with Structured Noise",
+    "pdf_link": "https://arxiv.org/pdf/2311.11221.pdf"
+  },
+  {
+    "title": "[CVPR '24] LucidDreamer: Towards High-Fidelity Text-to-3D Generation via Interval Score Matching",
+    "pdf_link": "https://arxiv.org/pdf/2311.11284.pdf"
+  },
+  {
+    "title": "LucidDreamer: Domain-free Generation of 3D Gaussian Splatting Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2311.13384.pdf"
+  },
+  {
+    "title": "[CVPR '24] HumanGaussian: Text-Driven 3D Human Generation with Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2311.17061.pdf"
+  },
+  {
+    "title": "CG3D: Compositional Generation for Text-to-3D",
+    "pdf_link": "https://arxiv.org/pdf/2311.17907.pdf"
+  },
+  {
+    "title": "Learn to Optimize Denoising Scores for 3D Generation - A Unified and Improved Diffusion Prior on NeRF and 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.04820.pdf"
+  },
+  {
+    "title": "[CVPR '24] Align Your Gaussians: Text-to-4D with Dynamic 3D Gaussians and Composed Diffusion Models",
+    "pdf_link": "https://arxiv.org/pdf/2304.08818.pdf"
+  },
+  {
+    "title": "DreamGaussian4D: Generative 4D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.17142.pdf"
+  },
+  {
+    "title": "4DGen: Grounded 4D Content Generation with Spatial-temporal Consistency",
+    "pdf_link": "https://arxiv.org/pdf/2312.17225.pdf"
+  },
+  {
+    "title": "Text2Immersion: Generative Immersive Scene with 3D Gaussian",
+    "pdf_link": "https://arxiv.org/pdf/2312.09242.pdf"
+  },
+  {
+    "title": "Repaint123: Fast and High-quality One Image to 3D Generation with Progressive Controllable 2D Repainting",
+    "pdf_link": "https://arxiv.org/pdf/2312.13271.pdf"
+  },
+  {
+    "title": "4D Gaussian Splatting: Towards Efficient Novel View Synthesis for Dynamic Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2402.03307.pdf"
+  },
+  {
+    "title": "GaussianFlow: Splatting Gaussian Dynamics for 4D Content Creation",
+    "pdf_link": "https://arxiv.org/pdf/2403.12365"
+  },
+  {
+    "title": "Motion-aware 3D Gaussian Splatting for Efficient Dynamic Scene Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2403.11447"
+  },
+  {
+    "title": "Bridging 3D Gaussian and Mesh for Freeview Video Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2403.11453"
+  },
+  {
+    "title": "[ECCV '24] Per-Gaussian Embedding-Based Deformation for Deformable 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.03613"
+  },
+  {
+    "title": "DreamScene4D: Dynamic Multi-Object Scene Generation from Monocular Videos",
+    "pdf_link": "https://arxiv.org/pdf/2405.02280"
+  },
+  {
+    "title": "[CVPR '24] 3D Geometry-aware Deformable Gaussian Splatting for Dynamic View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2404.06270"
+  },
+  {
+    "title": "MoDGS: Dynamic Gaussian Splatting from Causually-captured Monocular Videos",
+    "pdf_link": "https://arxiv.org/abs/2406.00434"
+  },
+  {
+    "title": "[ECCVW '24] Optimizing Dynamic NeRF and 3DGS with No Video Synchronization",
+    "pdf_link": "https://openreview.net/forum?id=RQutkn4V9I"
+  },
+  {
+    "title": "[3DV '24] Dynamic 3D Gaussians: Tracking by Persistent Dynamic View Synthesis",
+    "pdf_link": "https://dynamic3dgaussians.github.io/paper.pdf"
+  },
+  {
+    "title": "[CVPR '24] Deformable 3D Gaussians for High-Fidelity Monocular Dynamic Scene Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2309.13101.pdf"
+  },
+  {
+    "title": "[CVPR '24] 4D Gaussian Splatting for Real-Time Dynamic Scene Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2310.08528.pdf"
+  },
+  {
+    "title": "Real-time Photorealistic Dynamic Scene Representation and Rendering with 4D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2310.10642.pdf"
+  },
+  {
+    "title": "[ECCV '24] A Compact Dynamic 3D Gaussian Representation for Real-Time Dynamic View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2311.12897.pdf"
+  },
+  {
+    "title": "DynMF: Neural Motion Factorization for Real-time Dynamic View Synthesis with 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.00112.pdf"
+  },
+  {
+    "title": "[CVPR '24] Control4D: Efficient 4D Portrait Editing with Text",
+    "pdf_link": "https://arxiv.org/pdf/2305.20082.pdf"
+  },
+  {
+    "title": "[CVPR '24] SC-GS: Sparse-Controlled Gaussian Splatting for Editable Dynamic Scenes",
+    "pdf_link": "https://yihua7.github.io/SC-GS-web/materials/SC_GS_Arxiv.pdf"
+  },
+  {
+    "title": "[CVPR '24] Neural Parametric Gaussians for Monocular Non-Rigid Object Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2312.01196.pdf"
+  },
+  {
+    "title": "[CVPR '24] Gaussian-Flow: 4D Reconstruction with Dynamic 3D Gaussian Particle",
+    "pdf_link": "https://arxiv.org/pdf/2310.08528.pdf"
+  },
+  {
+    "title": "[CVPR '24] CoGS: Controllable Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.05664.pdf"
+  },
+  {
+    "title": "GauFRe: Gaussian Deformation Fields for Real-time Dynamic Novel View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2312.11458.pdf"
+  },
+  {
+    "title": "[CVPR '24] Spacetime Gaussian Feature Splatting for Real-Time Dynamic View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2312.16812.pdf"
+  },
+  {
+    "title": "MD-Splatting: Learning Metric Deformation from 4D Gaussians in Highly Deformable Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2312.00583"
+  },
+  {
+    "title": "[ECCV'24] SWinGS: Sliding Windows for Dynamic 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.13308.pdf"
+  },
+  {
+    "title": "[CVPR '24] 3DGStream: On-the-Fly Training of 3D Gaussians for Efficient Streaming of Photo-Realistic Free-Viewpoint Videos",
+    "pdf_link": "https://arxiv.org/pdf/2403.01444.pdf"
+  },
+  {
+    "title": "Contrastive Gaussian Clustering: Weakly Supervised 3D Scene Segmentation",
+    "pdf_link": "https://arxiv.org/abs/2404.12784"
+  },
+  {
+    "title": "CoSSegGaussians: Compact and Swift Scene Segmenting 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2401.05925.pdf"
+  },
+  {
+    "title": "TIP-Editor: An Accurate 3D Editor Following Both Text-Prompts And Image-Prompts",
+    "pdf_link": "https://arxiv.org/pdf/2401.14828.pdf"
+  },
+  {
+    "title": "Segment Anything in 3D Gaussians",
+    "pdf_link": "https://browse.arxiv.org/pdf/2401.17857.pdf"
+  },
+  {
+    "title": "GSEdit: Efficient Text-Guided Editing of 3D Objects via Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.05154.pdf"
+  },
+  {
+    "title": "GaussCtrl: Multi-View Consistent Text-Driven 3D Gaussian Splatting Editing",
+    "pdf_link": "https://arxiv.org/pdf/2403.08733.pdf"
+  },
+  {
+    "title": "View-Consistent 3D Editing with Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.11868.pdf"
+  },
+  {
+    "title": "Gaussian Frosting: Editable Complex Radiance Fields with Real-Time Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2403.14554"
+  },
+  {
+    "title": "Semantic Gaussians: Open-Vocabulary Scene Understanding with 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.15624"
+  },
+  {
+    "title": "EgoLifter: Open-world 3D Segmentation for Egocentric Perception",
+    "pdf_link": "https://arxiv.org/pdf/2403.18118.pdf"
+  },
+  {
+    "title": "InFusion: Inpainting 3D Gaussians via Learning Depth Completion from Diffusion Prior",
+    "pdf_link": "https://arxiv.org/pdf/2404.11613"
+  },
+  {
+    "title": "Gaga: Group Any Gaussians via 3D-aware Memory Bank",
+    "pdf_link": "https://arxiv.org/pdf/2404.07977.pdf"
+  },
+  {
+    "title": "[CVPR W'24] ICE-G: Image Conditional Editing of 3D Gaussian Splats",
+    "pdf_link": "https://arxiv.org/pdf/2406.08488"
+  },
+  {
+    "title": "[CVPR '24] GaussianEditor: Swift and Controllable 3D Editing with Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2311.14521.pdf"
+  },
+  {
+    "title": "[CVPR '24] GaussianEditor: Editing 3D Gaussians Delicately with Text Instructions",
+    "pdf_link": "https://arxiv.org/pdf/2311.16037.pdf"
+  },
+  {
+    "title": "Point'n Move: Interactive Scene Object Manipulation on Gaussian Splatting Radiance Fields",
+    "pdf_link": "https://arxiv.org/pdf/2311.16737.pdf"
+  },
+  {
+    "title": "[ECCV'24] Gaussian Grouping: Segment and Edit Anything in 3D Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2312.00732.pdf"
+  },
+  {
+    "title": "Segment Any 3D Gaussians",
+    "pdf_link": "https://jumpat.github.io/SAGA/SAGA_paper.pdf"
+  },
+  {
+    "title": "[CVPR '24] Feature 3DGS: Supercharging 3D Gaussian Splatting to Enable Distilled Feature Fields",
+    "pdf_link": "https://arxiv.org/pdf/2312.03203.pdf"
+  },
+  {
+    "title": "2D-Guided 3D Gaussian Segmentation",
+    "pdf_link": "https://arxiv.org/pdf/2312.16047.pdf"
+  },
+  {
+    "title": "[CVPR '24] Language Embedded 3D Gaussians for Open-Vocabulary Scene Understanding",
+    "pdf_link": "https://arxiv.org/pdf/2311.18482.pdf"
+  },
+  {
+    "title": "[CVPR '24] Feature 3DGS: Supercharging 3D Gaussian Splatting to Enable Distilled Feature Fields",
+    "pdf_link": "https://arxiv.org/pdf/2312.03203.pdf"
+  },
+  {
+    "title": "[CVPR '24] LangSplat: 3D Language Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.16084.pdf"
+  },
+  {
+    "title": "FMGS: Foundation Model Embedded 3D Gaussian Splatting for Holistic 3D Scene Understanding",
+    "pdf_link": "https://arxiv.org/pdf/2401.01970.pdf"
+  },
+  {
+    "title": "Rethinking Open-Vocabulary Segmentation of Radiance Fields in 3D Space",
+    "pdf_link": "https://arxiv.org/abs/2408.07416"
+  },
+  {
+    "title": "Gaussian Splashing: Dynamic Fluid Synthesis with Gaussian Splatting",
+    "pdf_link": "https://browse.arxiv.org/pdf/2401.15318.pdf"
+  },
+  {
+    "title": "GaMeS: Mesh-Based Adapting and Modification of Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2402.01459.pdf"
+  },
+  {
+    "title": "Mesh-based Gaussian Splatting for Real-time Large-scale Deformation",
+    "pdf_link": "https://arxiv.org/pdf/2402.04796.pdf"
+  },
+  {
+    "title": "Reconstruction and Simulation of Elastic Objects with Spring-Mass 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2403.09434"
+  },
+  {
+    "title": "Texture-GS: Disentangling the Geometry and Texture for 3D Gaussian Splatting Editing",
+    "pdf_link": "https://arxiv.org/pdf/2403.10050"
+  },
+  {
+    "title": "DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing",
+    "pdf_link": "https://arxiv.org/pdf/2403.17822"
+  },
+  {
+    "title": "2D Gaussian Splatting for Geometrically Accurate Radiance Fields",
+    "pdf_link": "https://arxiv.org/pdf/2403.17888"
+  },
+  {
+    "title": "Feature Splatting: Language-Driven Physics-Based Scene Synthesis and Editing",
+    "pdf_link": "https://arxiv.org/pdf/2404.01223"
+  },
+  {
+    "title": "[ECCV '24] GS2Mesh: Surface Reconstruction from Gaussian Splatting via Novel Stereo Views",
+    "pdf_link": "https://arxiv.org/pdf/2404.01810"
+  },
+  {
+    "title": "Trim 3D Gaussian Splatting for Accurate Geometry Representation",
+    "pdf_link": "https://arxiv.org/abs/2406.07499"
+  },
+  {
+    "title": "Effective Rank Analysis and Regularization for Enhanced 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/abs/2406.11672"
+  },
+  {
+    "title": "[CVPR '24] PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics",
+    "pdf_link": "https://arxiv.org/pdf/2311.12198.pdf"
+  },
+  {
+    "title": "[CVPR '24] SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2311.12775.pdf"
+  },
+  {
+    "title": "NeuSG: Neural Implicit Surface Reconstruction with 3D Gaussian Splatting Guidance",
+    "pdf_link": "https://arxiv.org/pdf/2312.00846.pdf"
+  },
+  {
+    "title": "Characterizing Satellite Geometry via Accelerated 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2401.02588.pdf"
+  },
+  {
+    "title": "TRIPS: Trilinear Point Splatting for Real-Time Radiance Field Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2401.06003.pdf"
+  },
+  {
+    "title": "EndoGS: Deformable Endoscopic Tissues Reconstruction with Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2401.11535.pdf"
+  },
+  {
+    "title": "EndoGaussian: Gaussian Splatting for Deformable Surgical Scene Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2401.12561.pdf"
+  },
+  {
+    "title": "GauU-Scene: A Scene Reconstruction Benchmark on Large Scale 3D Reconstruction Dataset Using Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2401.14032.pdf"
+  },
+  {
+    "title": "LIV-GaussMap: LiDAR-Inertial-Visual Fusion for Real-time 3D Radiance Field Map Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2401.14857.pdf"
+  },
+  {
+    "title": "VR-GS: A Physical Dynamics-Aware Interactive Gaussian Splatting System in Virtual Reality",
+    "pdf_link": "https://arxiv.org/pdf/2401.16663.pdf"
+  },
+  {
+    "title": "Splat-Nav: Safe Real-Time Robot Navigation in Gaussian Splatting Maps",
+    "pdf_link": "https://arxiv.org/pdf/2403.02751.pdf"
+  },
+  {
+    "title": "Radiative Gaussian Splatting for Efficient X-ray Novel View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2403.04116.pdf"
+  },
+  {
+    "title": "ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation",
+    "pdf_link": "https://arxiv.org/pdf/2403.08321.pdf"
+  },
+  {
+    "title": "GaussianImage: 1000 FPS Image Representation and Compression by 2D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.08551"
+  },
+  {
+    "title": "GaussianGrasper: 3D Language Gaussian Splatting for Open-vocabulary Robotic Grasping",
+    "pdf_link": "https://arxiv.org/pdf/2403.09637"
+  },
+  {
+    "title": "Den-SOFT: Dense Space-Oriented Light Field DataseT for 6-DOF Immersive Experience",
+    "pdf_link": "https://arxiv.org/pdf/2403.09973.pdf"
+  },
+  {
+    "title": "Modeling uncertainty for Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.18476"
+  },
+  {
+    "title": "TOGS: Gaussian Splatting with Temporal Opacity Offset for Real-Time 4D DSA Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2403.19586"
+  },
+  {
+    "title": "GaSpCT: Gaussian Splatting for Novel CT Projection View Synthesis",
+    "pdf_link": "https://arxiv.org/pdf/2404.03126"
+  },
+  {
+    "title": "Z-Splat: Z-Axis Gaussian Splatting for Camera-Sonar Fusion",
+    "pdf_link": "https://arxiv.org/pdf/2404.04687"
+  },
+  {
+    "title": "Dual-Camera Smooth Zoom on Mobile Phones",
+    "pdf_link": "https://arxiv.org/pdf/2404.04908"
+  },
+  {
+    "title": "Gaussian Pancakes: Geometrically-Regularized 3D Gaussian Splatting for Realistic Endoscopic Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2404.06128"
+  },
+  {
+    "title": "SpikeNVS: Enhancing Novel View Synthesis from Blurry Images via Spike Camera",
+    "pdf_link": "https://arxiv.org/pdf/2404.06710"
+  },
+  {
+    "title": "[CVPR '24] SplatPose & Detect: Pose-Agnostic 3D Anomaly Detection",
+    "pdf_link": "https://arxiv.org/pdf/2404.06832"
+  },
+  {
+    "title": "Reinforcement Learning with Generalizable Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.07950"
+  },
+  {
+    "title": "DarkGS: Learning Neural Illumination and 3D Gaussians Relighting for Robotic Exploration in the Dark",
+    "pdf_link": "https://arxiv.org/pdf/2403.10814"
+  },
+  {
+    "title": "Adversarial Generation of Hierarchical Gaussians for 3d Generative Model",
+    "pdf_link": "https://arxiv.org/abs/2406.02968"
+  },
+  {
+    "title": "[ECCV '24] FisherRF: Active View Selection and Uncertainty Quantification for Radiance Fields using Fisher Information",
+    "pdf_link": "https://arxiv.org/pdf/2311.17874.pdf"
+  },
+  {
+    "title": "Periodic Vibration Gaussian: Dynamic Urban Scene Reconstruction and Real-time Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2311.18561.pdf"
+  },
+  {
+    "title": "MANUS: Markerless Hand-Object Grasp Capture using Articulated 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2312.02137.pdf"
+  },
+  {
+    "title": "[CVPR '24] Triplane Meets Gaussian Splatting: Fast and Generalizable Single-View 3D Reconstruction with Transformers",
+    "pdf_link": "https://arxiv.org/pdf/2312.09147.pdf"
+  },
+  {
+    "title": "Mathematical Supplement for the gsplat Library",
+    "pdf_link": "https://arxiv.org/pdf/2312.02121.pdf"
+  },
+  {
+    "title": "PEGASUS: Physically Enhanced Gaussian Splatting Simulation System for 6DOF Object Pose Dataset Generation",
+    "pdf_link": "https://arxiv.org/pdf/2401.02281.pdf"
+  },
+  {
+    "title": "DISTWAR: Fast Differentiable Rendering on Raster-based Rendering Pipelines",
+    "pdf_link": "https://arxiv.org/pdf/2401.05345.pdf"
+  },
+  {
+    "title": "[CVPR '24] FreGS: 3D Gaussian Splatting with Progressive Frequency Regularization",
+    "pdf_link": "https://arxiv.org/pdf/2403.06908.pdf"
+  },
+  {
+    "title": "RAIN-GS: Relaxing Accurate Initialization Constraint for 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.09413"
+  },
+  {
+    "title": "A New Split Algorithm for 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.09143"
+  },
+  {
+    "title": "Revising Densification in Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.06109"
+  },
+  {
+    "title": "3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt",
+    "pdf_link": "https://lukashoel.github.io/3DGS-LM/static/3DGS-LM_paper.pdf"
+  },
+  {
+    "title": "[CVPRW '24] Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images",
+    "pdf_link": "https://arxiv.org/pdf/2311.13398.pdf"
+  },
+  {
+    "title": "EAGLES: Efficient Accelerated 3D Gaussians with Lightweight EncodingS",
+    "pdf_link": "https://arxiv.org/pdf/2312.04564.pdf"
+  },
+  {
+    "title": "[CVPR '24] COLMAP-Free 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.07504.pdf"
+  },
+  {
+    "title": "iComMa: Inverting 3D Gaussians Splatting for Camera Pose Estimation via Comparing and Matching",
+    "pdf_link": "https://arxiv.org/pdf/2312.09031.pdf"
+  },
+  {
+    "title": "[CVPR '24] Gaussian Shadow Casting for Neural Characters",
+    "pdf_link": "https://arxiv.org/pdf/2401.06116.pdf"
+  },
+  {
+    "title": "Optimal Projection for 3D Gaussian Splatting",
+    "pdf_link": "https://browse.arxiv.org/pdf/2402.00752.pdf"
+  },
+  {
+    "title": "360-GS: Layout-guided Panoramic Gaussian Splatting For Indoor Roaming",
+    "pdf_link": "https://browse.arxiv.org/pdf/2402.00763.pdf"
+  },
+  {
+    "title": "StopThePop: Sorted Gaussian Splatting for View-Consistent Real-time Rendering",
+    "pdf_link": "arxiv.org/pdf/2402.00525.pdf"
+  },
+  {
+    "title": "[CVPR '24] GES: Generalized Exponential Splatting for Efficient Radiance Field Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2402.10128.pdf"
+  },
+  {
+    "title": "Identifying Unnecessary 3D Gaussians using Clustering for Fast Rendering of 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2402.13827.pdf"
+  },
+  {
+    "title": "GaussianPro: 3D Gaussian Splatting with Progressive Propagation",
+    "pdf_link": "https://arxiv.org/pdf/2402.14650.pdf"
+  },
+  {
+    "title": "Spec-Gaussian: Anisotropic View-Dependent Appearance for 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2402.15870.pdf"
+  },
+  {
+    "title": "[CVPR '24] VastGaussian: Vast 3D Gaussians for Large Scene Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2402.17427.pdf"
+  },
+  {
+    "title": "3D Gaussian Model for Animation and Texturing",
+    "pdf_link": "https://arxiv.org/pdf/2402.19441.pdf"
+  },
+  {
+    "title": "BAGS: Blur Agnostic Gaussian Splatting through Multi-Scale Kernel Modeling",
+    "pdf_link": "https://arxiv.org/pdf/2403.04926.pdf"
+  },
+  {
+    "title": "StyleGaussian: Instant 3D Style Transfer with Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.07807.pdf"
+  },
+  {
+    "title": "Gaussian Splatting in Style",
+    "pdf_link": "https://arxiv.org/pdf/2403.08498"
+  },
+  {
+    "title": "BAD-Gaussians: Bundle Adjusted Deblur Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.11831.pdf"
+  },
+  {
+    "title": "SWAG: Splatting in the Wild images with Appearance-conditioned Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2403.10427.pdf"
+  },
+  {
+    "title": "GeoGaussian: Geometry-aware Gaussian Splatting for Scene Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2403.11324.pdf"
+  },
+  {
+    "title": "Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration",
+    "pdf_link": "https://arxiv.org/pdf/2403.11056.pdf"
+  },
+  {
+    "title": "Gaussian Splatting on the Move: Blur and Rolling Shutter Compensation for Natural Camera Motion",
+    "pdf_link": "https://arxiv.org/pdf/2403.13327.pdf"
+  },
+  {
+    "title": "RadSplat: Radiance Field-Informed Gaussian Splatting for Robust Real-Time Rendering with 900+ FPS",
+    "pdf_link": "https://arxiv.org/pdf/2403.13806.pdf"
+  },
+  {
+    "title": "Mini-Splatting: Representing Scenes with a Constrained Number of Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2403.14166.pdf"
+  },
+  {
+    "title": "Pixel-GS: Density Control with Pixel-aware Gradient for 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.15530.pdf"
+  },
+  {
+    "title": "Gaussian in the Wild: 3D Gaussian Splatting for Unconstrained Image Collections",
+    "pdf_link": "https://arxiv.org/pdf/2403.15704"
+  },
+  {
+    "title": "GSDF: 3DGS Meets SDF for Improved Rendering and Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2403.16964"
+  },
+  {
+    "title": "Octree-GS: Towards Consistent Real-time Rendering with LOD-Structured 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2403.17898"
+  },
+  {
+    "title": "SA-GS: Scale-Adaptive Gaussian Splatting for Training-Free Anti-Aliasing",
+    "pdf_link": "https://arxiv.org/pdf/2403.19615"
+  },
+  {
+    "title": "Snap-it, Tap-it, Splat-it: Tactile-Informed 3D Gaussian Splatting for Reconstructing Challenging Surfaces",
+    "pdf_link": "https://arxiv.org/pdf/2403.20275"
+  },
+  {
+    "title": "3DGSR: Implicit Surface Reconstruction with 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.00409.pdf"
+  },
+  {
+    "title": "Mirror-3DGS: Incorporating Mirror Reflections into 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.01168.pdf"
+  },
+  {
+    "title": "OmniGS: Omnidirectional Gaussian Splatting for Fast Radiance Field Reconstruction using Omnidirectional Images",
+    "pdf_link": "https://arxiv.org/pdf/2404.03202"
+  },
+  {
+    "title": "Robust Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.04211"
+  },
+  {
+    "title": "DeblurGS: Gaussian Splatting for Camera Motion Blur",
+    "pdf_link": "https://arxiv.org/pdf/2404.11358"
+  },
+  {
+    "title": "StylizedGS: Controllable Stylization for 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.05220"
+  },
+  {
+    "title": "LoopGaussian: Creating 3D Cinemagraph with Multi-view Images via Eulerian Motion Field",
+    "pdf_link": "https://arxiv.org/pdf/2404.08966"
+  },
+  {
+    "title": "GSCore: Efficient Radiance Field Rendering via Architectural Support for 3D Gaussian Splatting",
+    "pdf_link": "https://jaewoong.org/pubs/asplos24-gscore.pdf"
+  },
+  {
+    "title": "Mip-Splatting Alias-free 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2311.16493.pdf"
+  },
+  {
+    "title": "Relightable 3D Gaussian: Real-time Point Cloud Relighting with BRDF Decomposition and Ray Tracing",
+    "pdf_link": "https://arxiv.org/pdf/2311.16043.pdf"
+  },
+  {
+    "title": "[CVPR '24] GS-IR: 3D Gaussian Splatting for Inverse Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2311.16473.pdf"
+  },
+  {
+    "title": "[CVPR '24] Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2311.17089.pdf"
+  },
+  {
+    "title": "[CVPR '24] GaussianShader: 3D Gaussian Splatting with Shading Functions for Reflective Surfaces",
+    "pdf_link": "https://arxiv.org/pdf/2311.17977.pdf"
+  },
+  {
+    "title": "[CVPR '24] Scaffold-GS: Structured 3D Gaussians for View-Adaptive Rendering",
+    "pdf_link": "https://arxiv.org/pdf/2312.00109.pdf"
+  },
+  {
+    "title": "Deblurring 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2401.00834.pdf"
+  },
+  {
+    "title": "GIR: 3D Gaussian Inverse Rendering for Relightable Scene Factorization",
+    "pdf_link": "https://arxiv.org/pdf/2312.05133"
+  },
+  {
+    "title": "Gaussian Splatting with NeRF-based Color and Opacity",
+    "pdf_link": "https://arxiv.org/pdf/2312.13729.pdf"
+  },
+  {
+    "title": "Progress and Prospects in 3D Generative AI: A Technical Overview including 3D human",
+    "pdf_link": "https://arxiv.org/pdf/2401.02620.pdf"
+  },
+  {
+    "title": "A Survey on 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2401.03890.pdf"
+  },
+  {
+    "title": "3D Gaussian as a New Vision Era: A Survey",
+    "pdf_link": "https://arxiv.org/pdf/2402.07181.pdf"
+  },
+  {
+    "title": "How NeRFs and 3D Gaussian Splatting are Reshaping SLAM: a Survey",
+    "pdf_link": "https://arxiv.org/pdf/2402.13255.pdf"
+  },
+  {
+    "title": "Recent Advances in 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.11134"
+  },
+  {
+    "title": "Gaussian Splatting: 3D Reconstruction and Novel View Synthesis, a Review",
+    "pdf_link": "https://arxiv.org/pdf/2405.03417"
+  },
+  {
+    "title": "SGS-SLAM: Semantic Gaussian Splatting For Neural Dense SLAM",
+    "pdf_link": "https://arxiv.org/pdf/2402.03246.pdf"
+  },
+  {
+    "title": "SemGauss-SLAM: Dense Semantic Gaussian Splatting SLAM",
+    "pdf_link": "https://arxiv.org/pdf/2403.07494.pdf"
+  },
+  {
+    "title": "Compact 3D Gaussian Splatting For Dense Visual SLAM",
+    "pdf_link": "https://arxiv.org/pdf/2403.11247.pdf"
+  },
+  {
+    "title": "NEDS-SLAM: A Novel Neural Explicit Dense Semantic SLAM Framework using 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.11679.pdf"
+  },
+  {
+    "title": "High-Fidelity SLAM Using Gaussian Splatting with Rendering-Guided Densification and Regularized Optimization",
+    "pdf_link": "https://arxiv.org/pdf/2403.12535.pdf"
+  },
+  {
+    "title": "RGBD GS-ICP SLAM",
+    "pdf_link": "https://arxiv.org/pdf/2403.12550.pdf"
+  },
+  {
+    "title": "EndoGSLAM: Real-Time Dense Reconstruction and Tracking in Endoscopic Surgeries using Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.15124.pdf"
+  },
+  {
+    "title": "CG-SLAM: Efficient Dense RGB-D SLAM in a Consistent Uncertainty-aware 3D Gaussian Field",
+    "pdf_link": "https://arxiv.org/pdf/2403.16095"
+  },
+  {
+    "title": "MM3DGS SLAM: Multi-modal 3D Gaussian Splatting for SLAM Using Vision, Depth, and Inertial Measurements",
+    "pdf_link": "https://arxiv.org/pdf/2404.00923"
+  },
+  {
+    "title": "Gaussian-LIC: Photo-realistic LiDAR-Inertial-Camera SLAM with 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2404.06926"
+  },
+  {
+    "title": "RTG-SLAM: Real-time 3D Reconstruction at Scale using Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/abs/2404.19706"
+  },
+  {
+    "title": "[CVPR '24] GS-SLAM: Dense Visual SLAM with 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2311.11700.pdf"
+  },
+  {
+    "title": "[CVPR '24] SplaTAM: Splat, Track & Map 3D Gaussians for Dense RGB-D SLAM",
+    "pdf_link": "https://arxiv.org/pdf/2312.02126.pdf"
+  },
+  {
+    "title": "[CVPR '24] Gaussian Splatting SLAM",
+    "pdf_link": "https://www.imperial.ac.uk/media/imperial-college/research-centres-and-groups/dyson-robotics-lab/hide-et-al_GaussianSplattingSLAM_Dec2023.pdf"
+  },
+  {
+    "title": "Gaussian-SLAM: Photo-realistic Dense SLAM with Gaussian Splatting",
+    "pdf_link": "https://ivi.fnwi.uva.nl/cv/paper/GaussianSLAM.pdf"
+  },
+  {
+    "title": "[CVPR '24] Photo-SLAM: Real-time Simultaneous Localization and Photorealistic Mapping for Monocular, Stereo, and RGB-D Cameras",
+    "pdf_link": "https://arxiv.org/pdf/2311.16728.pdf"
+  },
+  {
+    "title": "[CVPR '24] DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization",
+    "pdf_link": "https://arxiv.org/pdf/2403.06912.pdf"
+  },
+  {
+    "title": "Touch-GS: Visual-Tactile Supervised 3D Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2403.09875.pdf"
+  },
+  {
+    "title": "MVSplat: Efficient 3D Gaussian Splatting from Sparse Multi-View Images",
+    "pdf_link": "https://arxiv.org/pdf/2403.14627"
+  },
+  {
+    "title": "latentSplat: Autoencoding Variational Gaussians for Fast Generalizable 3D Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2403.16292.pdf"
+  },
+  {
+    "title": "GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation",
+    "pdf_link": "https://arxiv.org/pdf/2403.14621.pdf"
+  },
+  {
+    "title": "Gamba: Marry Gaussian Splatting with Mamba for single view 3D reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2403.18795"
+  },
+  {
+    "title": "CoherentGS: Sparse Novel View Synthesis with Coherent 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2403.19495"
+  },
+  {
+    "title": "InstantSplat: Unbounded Sparse-view Pose-free Gaussian Splatting in 40 Seconds",
+    "pdf_link": "https://arxiv.org/pdf/2403.20309.pdf"
+  },
+  {
+    "title": "Sp2360: Sparse-view 360 Scene Reconstruction using Cascaded 2D Diffusion Priors",
+    "pdf_link": "https://arxiv.org/pdf/2405.16517"
+  },
+  {
+    "title": "SparseGS: Real-Time 360° Sparse View Synthesis using Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.00206.pdf"
+  },
+  {
+    "title": "FSGS: Real-Time Few-shot View Synthesis using Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/pdf/2312.00451.pdf"
+  },
+  {
+    "title": "[CVPR '24] pixelSplat: 3D Gaussian Splats from Image Pairs for Scalable Generalizable 3D Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2312.12337.pdf"
+  },
+  {
+    "title": "[CVPR '24] Splatter Image: Ultra-Fast Single-View 3D Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2312.13150.pdf"
+  },
+  {
+    "title": "GaussNav: Gaussian Splatting for Visual Navigation",
+    "pdf_link": "https://arxiv.org/pdf/2403.11625.pdf"
+  },
+  {
+    "title": "3DGS-ReLoc: 3D Gaussian Splatting for Map Representation and Visual ReLocalization",
+    "pdf_link": "https://arxiv.org/pdf/2403.11367"
+  },
+  {
+    "title": "Beyond Uncertainty: Risk-Aware Active View Acquisition for Safe Robot Navigation and 3D Scene Understanding with FisherRF",
+    "pdf_link": "https://arxiv.org/pdf/2403.11396"
+  },
+  {
+    "title": "3DGS-Calib: 3D Gaussian Splatting for Multimodal SpatioTemporal Calibration",
+    "pdf_link": "https://arxiv.org/pdf/2403.11577"
+  },
+  {
+    "title": "HO-Gaussian: Hybrid Optimization of 3D Gaussian Splatting for Urban Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2403.20032.pdf"
+  },
+  {
+    "title": "SGD: Street View Synthesis with Gaussian Splatting and Diffusion Prior",
+    "pdf_link": "https://arxiv.org/pdf/2403.20079.pdf"
+  },
+  {
+    "title": "BEINGS: Bayesian Embodied Image-goal Navigation with Gaussian Splatting",
+    "pdf_link": "https://arxiv.org/abs/2409.10216"
+  },
+  {
+    "title": "GGRt: Towards Generalizable 3D Gaussians without Pose Priors in Real-Time",
+    "pdf_link": "https://arxiv.org/pdf/2403.10147"
+  },
+  {
+    "title": "GS-Pose: Cascaded Framework for Generalizable Segmentation-based 6D Object Pose Estimation",
+    "pdf_link": "https://arxiv.org/pdf/2403.10683"
+  },
+  {
+    "title": "Fed3DGS: Scalable 3D Gaussian Splatting with Federated Learning",
+    "pdf_link": "https://arxiv.org/pdf/2403.11460"
+  },
+  {
+    "title": "GS-Pose: Cascaded Framework for Generalizable Segmentation-based 6D Object Pose Estimation",
+    "pdf_link": "https://arxiv.org/pdf/2403.10683"
+  },
+  {
+    "title": "Creating Seamless 3D Maps Using Radiance Fields",
+    "pdf_link": "https://arxiv.org/pdf/2403.11364.pdf"
+  },
+  {
+    "title": "HGS-Mapping: Online Dense Mapping Using Hybrid Gaussian Representation in Urban Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2403.20159.pdf"
+  },
+  {
+    "title": "[ECCV '24] CityGaussian: Real-time High-quality Large-Scale Scene Rendering with Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2404.01133"
+  },
+  {
+    "title": "MM-Gaussian: 3D Gaussian-based Multi-modal Fusion for Localization and Reconstruction in Unbounded Scenes",
+    "pdf_link": "https://arxiv.org/pdf/2404.04026"
+  },
+  {
+    "title": "On Scaling Up 3D Gaussian Splatting Training",
+    "pdf_link": "https://arxiv.org/abs/2406.18533"
+  }
+]

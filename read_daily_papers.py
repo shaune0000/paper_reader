@@ -120,7 +120,7 @@ def json_to_md(json_content, link, pdf_link):
 
 #     return system_json
 
-def update_paper():
+def update_paper(zulip):
     with create_connection() as conn:
     
         create_table(conn)
@@ -142,9 +142,10 @@ def update_paper():
                 print(llm_res)
                 res = json_to_md(llm_res, paper['link'], paper['pdf_link'])
 
-                paper['summary'] = json.dumps(llm_res, ensure_ascii=False)
+                paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
                 zulip_topic = f'{json_output["date"]} {llm_res["短標題"]}'
-                post_to_zulip(zulip_topic, res)
+                if zulip:
+                    post_to_zulip(zulip_topic, res)
                 paper['zulip_topic'] = zulip_topic
                 
                 insert_paper(conn, paper)
@@ -152,7 +153,7 @@ def update_paper():
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Fetch daily papers and summarize content.")
-    parser.add_argument('--init', action='store_true', help='Send report in the begining')
+    parser.add_argument('--zulip', type=bool, help='disable zulip', default=True)
     # parser.add_argument('--notify', action='store_true', help='Send analysis report to line notify')        
     # parser.add_argument('--warpcast', action='store_true', help='post analysis report to warpcast')        
     # parser.add_argument('--tickers', type=str, nargs='+', default=['BTCUSD', 'ETHUSD', 'SOLUSD'], help='A list of ticker to fetch and analyze')
@@ -160,12 +161,13 @@ if __name__ == "__main__":
 
     logger.info(f"Start to daily summerized papers")
 
-    logger.info('enable zulip message handler')
-    handle_zulip_messages()
+    if args.zulip:
+        logger.info('enable zulip message handler')
+        handle_zulip_messages()
 
     while True:
         
-        update_paper()
+        update_paper(args.zulip)
         logger.info('sleep for next update')
         random_sleep()
 
