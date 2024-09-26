@@ -76,7 +76,7 @@ def encode_image(image_path):
 def answer_question(db, question, paper_title):
     # 創建系統消息模板
     system_template = """你是一個專門回答有關科學論文問題的AI助手。你的任務是根據標題為《{title}》的論文提供準確且相關的信息。
-        如果在給定的上下文中找不到答案，請說‘在文獻中找不到相關的訊息來回答這個問題。’請始終保持專業和學術的語氣。"""
+        如果在給定的上下文中找不到答案，請說‘在文獻中找不到相關的訊息來回答這個問題。以台灣用語, 請始終保持專業和學術的語氣。"""
 
     system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
 
@@ -111,7 +111,7 @@ def sumarize_paper(texts, docs, paper_title):
 
     system_template = """
         你是一個專業的科學家、文檔分析助手並閱讀了很多論文。
-        你的任務是閱讀提供的文本，並生成一個結構化的摘要和分析。
+        你的任務是閱讀提供的文本，並以台灣用語生成一個結構化的摘要和分析。
         你能夠提供正確且豐富的訊息，也能夠分析、列表及總結這篇論文的內容。
         所有的資訊都是基於這篇論文"{title}"的內容而闡述。
         
