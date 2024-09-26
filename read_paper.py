@@ -125,7 +125,6 @@ def read_paper(zulip, papers_data):
                 
                 insert_paper(conn, paper)
 
-                break
         
 if __name__ == "__main__":
 
