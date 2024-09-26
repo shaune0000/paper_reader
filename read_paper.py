@@ -72,6 +72,8 @@ def write_md_file(paper_id, md_content):
     
     logger.info(f"已將 Markdown 內容寫入文件：{file_name}")
 
+    return file_name
+
 def download_pdf_if_not_exists(pdf_link, target_path):
     if os.path.exists(target_path):
         logger.info(f"PDF 文件已存在：{target_path}")
@@ -86,10 +88,12 @@ def download_pdf_if_not_exists(pdf_link, target_path):
     return pdf_filename
 
 def read_paper(zulip, papers_data):
+
     with create_connection() as conn:
     
         create_table(conn)
     
+        md_files = []
         for paper in papers_data:
 
             paper_id = extract_id_from_pdf_link(paper['pdf_link'])
@@ -115,7 +119,7 @@ def read_paper(zulip, papers_data):
                 md_content = json_to_md(llm_res, paper['pdf_link'])
 
                 # 寫入 Markdown 文件
-                write_md_file(paper_id, md_content)
+                md_file = write_md_file(paper_id, md_content)
 
                 paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
                 zulip_topic = f'{llm_res["短標題"]}'
@@ -125,7 +129,10 @@ def read_paper(zulip, papers_data):
                 
                 insert_paper(conn, paper)
 
-                break
+                md_files.append(md_file)
+
+        logger.info(f'{len(md_files) papers have been read!!!}')
+
         
 if __name__ == "__main__":
 
