@@ -43,7 +43,7 @@ def insert_paper(conn, paper):
         paper['id'], 
         paper['title'], 
         paper.get('summary', ''),
-        paper['link'], 
+        paper.get('link', ''),
         paper.get('pdf_link', ''),
         paper.get('local_pdf', ''),
         paper.get('zulip_topic', ''), 
