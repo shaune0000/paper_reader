@@ -131,7 +131,7 @@ def read_paper(zulip, papers_data):
 
                 md_files.append(md_file)
 
-        logger.info(f'{len(md_files) papers have been read!!!}')
+        logger.info(f'{len(md_files)} papers have been read!!!')
 
         
 if __name__ == "__main__":
