@@ -65,7 +65,7 @@ def extract_id_from_pdf_link(pdf_link):
     # 如果上面的匹配失敗，嘗試匹配最後一個斜槓後的數字（不包括文件擴展名）
     match = re.search(r'/(\d+)(?:\.\w+)?(?:\?|$)', pdf_link)
     return match.group(1) if match else None
-    
+
 def write_md_file(paper_id, md_content):
     # 確保 ./md/ 目錄存在
     os.makedirs('./md', exist_ok=True)
@@ -168,23 +168,35 @@ def read_paper(zulip, papers_data):
 
                 paper['local_pdf'] = pdf_filename
 
-                texts, docs = load_paper(pdf_filename)
-                llm_res = sumarize_paper(texts, docs, paper['title'])
-                logger.info(json.dumps(llm_res, ensure_ascii=False))
-                md_content = json_to_md(llm_res, paper['pdf_link'])
+                try:
+                    texts, docs = load_paper(pdf_filename)
+                    llm_res = sumarize_paper(texts, docs, paper['title'])
+                    logger.info(json.dumps(llm_res, ensure_ascii=False))
+                    md_content = json_to_md(llm_res, paper['pdf_link'])
 
-                # 寫入 Markdown 文件
-                md_file = write_md_file(paper_id, md_content)
+                    # 寫入 Markdown 文件
+                    md_file = write_md_file(paper_id, md_content)
 
-                paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
-                zulip_topic = f'{llm_res["短標題"]}'
-                if zulip:
-                    post_to_zulip(zulip_topic, md_content)
-                paper['zulip_topic'] = zulip_topic
-                
-                insert_paper(conn, paper)
+                    paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
+                    zulip_topic = f'{llm_res["短標題"]}'
+                    if zulip:
+                        post_to_zulip(zulip_topic, md_content)
+                    paper['zulip_topic'] = zulip_topic
+                    
+                    insert_paper(conn, paper)
 
-                md_files.append(md_file)
+                    md_files.append(md_file)
+                except Exception as e:
+                    write_error(
+                        {
+                            "message": f"讀取檔案錯誤: {e}",
+                            "pdf_link": paper['pdf_link'],
+                            "title": paper['title'],
+                            "file_path": paper['local_pdf']
+                        }
+                    )
+                    continue
+
 
         logger.info(f'{len(md_files)} papers have been read!!!')
 
