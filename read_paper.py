@@ -87,6 +87,35 @@ def download_pdf_if_not_exists(pdf_link, target_path):
     logger.info(f"已下載 PDF 文件：{pdf_filename}")
     return pdf_filename
 
+def write_error(information):
+    # 確保日誌目錄存在
+    log_dir = './log'
+    os.makedirs(log_dir, exist_ok=True)
+    
+    log_file = os.path.join(log_dir, 'error.log')
+    
+    # 讀取現有的錯誤日誌（如果存在）
+    existing_errors = []
+    if os.path.exists(log_file):
+        with open(log_file, 'r', encoding='utf-8') as f:
+            try:
+                existing_errors = json.load(f)
+            except json.JSONDecodeError:
+                # 如果文件不是有效的 JSON，我們將從空列表開始
+                existing_errors = []
+    
+    # 添加時間戳到錯誤信息
+    information['timestamp'] = datetime.now().isoformat()
+    
+    # 將新的錯誤信息添加到現有錯誤列表中
+    existing_errors.append(information)
+    
+    # 將更新後的錯誤列表寫入文件
+    with open(log_file, 'w', encoding='utf-8') as f:
+        json.dump(existing_errors, f, ensure_ascii=False, indent=2)
+    
+    logger.info(f"錯誤信息已寫入：{log_file}")
+
 def read_paper(zulip, papers_data):
 
     with create_connection() as conn:
@@ -100,6 +129,13 @@ def read_paper(zulip, papers_data):
                         
             if not paper_id:
                 logger.warning(f"無法從 PDF 連結提取 ID: {paper['pdf_link']}")
+                write_error(
+                    {
+                        "message": f"無法從 PDF 連結提取 ID: {paper['pdf_link']}",
+                        "pdf_link": paper['pdf_link'],
+                        "title": paper['title']
+                    }
+                )
                 continue            
 
             existing_paper = get_paper(conn, paper_id)
@@ -110,7 +146,18 @@ def read_paper(zulip, papers_data):
                 
                 # 檢查並下載 PDF
                 pdf_target_path = f"./paper_pdf/{paper_id}.pdf"
-                pdf_filename = download_pdf_if_not_exists(paper['pdf_link'], pdf_target_path)
+                try:
+                    pdf_filename = download_pdf_if_not_exists(paper['pdf_link'], pdf_target_path)
+                except Exception as e:
+                    write_error(
+                        {
+                            "message": f"下載檔案錯誤: {e}",
+                            "pdf_link": paper['pdf_link'],
+                            "title": paper['title']
+                        }
+                    )
+                    continue
+
                 paper['local_pdf'] = pdf_filename
 
                 texts, docs = load_paper(pdf_filename)
