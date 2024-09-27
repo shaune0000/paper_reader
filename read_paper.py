@@ -131,7 +131,7 @@ def read_paper(zulip, papers_data):
     
         md_files = []
         for paper in papers_data:
-            logger.info(f'start to read paper: {paper['title']}')
+            logger.info(f"start to read paper: {paper['title']}")
 
             paper_id = extract_id_from_pdf_link(paper['pdf_link'])
                         
