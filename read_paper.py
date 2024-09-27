@@ -195,6 +195,14 @@ def read_paper(zulip, papers_data):
                             "file_path": paper['local_pdf']
                         }
                     )
+                    # 嘗試刪除本地 PDF 文件
+                    try:
+                        if os.path.exists(paper['local_pdf']):
+                            os.remove(paper['local_pdf'])
+                            logger.info(f"已刪除錯誤的 PDF 文件: {paper['local_pdf']}")
+                    except Exception as delete_error:
+                        logger.error(f"無法刪除錯誤的 PDF 文件 {paper['local_pdf']}: {delete_error}")
+                                        
                     continue
 
 

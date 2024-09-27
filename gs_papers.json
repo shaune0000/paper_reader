@@ -13,7 +13,7 @@
   },
   {
     "title": "OmniRe: Omni Urban Scene Reconstruction",
-    "pdf_link": "https://arxiv.org/abs/2408.16760"
+    "pdf_link": "https://arxiv.org/pdf/2408.16760"
   },
   {
     "title": "[CVPR '24] DrivingGaussian: Composite Gaussian Splatting for Surrounding Dynamic Autonomous Driving Scenes",
@@ -65,7 +65,7 @@
   },
   {
     "title": "[CVPRW '24] Gaussian Splatting Decoder for 3D‑aware Generative Adversarial Networks",
-    "pdf_link": "https://arxiv.org/abs/2404.10625"
+    "pdf_link": "https://arxiv.org/pdf/2404.10625"
   },
   {
     "title": "GoMAvatar: Efficient Animatable Human Modeling from Monocular Video Using Gaussians-on-Mesh",
@@ -77,7 +77,7 @@
   },
   {
     "title": "[CVPR '24] Guess The Unseen: Dynamic 3D Scene Reconstruction from Partial 2D Glimpses",
-    "pdf_link": "https://arxiv.org/abs/2404.14410"
+    "pdf_link": "https://arxiv.org/pdf/2404.14410"
   },
   {
     "title": "Drivable 3D Gaussian Avatars",
@@ -177,7 +177,7 @@
   },
   {
     "title": "[I3D '24] Reducing the Memory Footprint of 3D Gaussian Splatting",
-    "pdf_link": "https://repo-sam.inria.fr/fungraph/reduced_3dgs/reduced_3DGS_i3d.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2406.17074"
   },
   {
     "title": "[CVPR '24] Compressed 3D Gaussian Splatting for Accelerated Novel View Synthesis",
@@ -193,11 +193,11 @@
   },
   {
     "title": "3DGS.zip: A survey on 3D Gaussian Splatting Compression Methods",
-    "pdf_link": "https://arxiv.org/abs/2407.09510"
+    "pdf_link": "https://arxiv.org/pdf/2407.09510"
   },
   {
     "title": "LapisGS: Layered Progressive 3D Gaussian Splatting for Adaptive Streaming",
-    "pdf_link": "http://arxiv.org/abs/2408.14823"
+    "pdf_link": "http://arxiv.org/pdf/2408.14823"
   },
   {
     "title": "LightGaussian: Unbounded 3D Gaussian Compression with 15x Reduction and 200+ FPS",
@@ -241,7 +241,7 @@
   },
   {
     "title": "Controllable Text-to-3D Generation via Surface-Aligned Gaussian Splatting",
-    "pdf_link": "https://lizhiqi49.github.io/MVControl/assets/paper.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2403.09981"
   },
   {
     "title": "Hyper-3DG:Text-to-3D Gaussian Generation via Hypergraph",
@@ -397,7 +397,7 @@
   },
   {
     "title": "MoDGS: Dynamic Gaussian Splatting from Causually-captured Monocular Videos",
-    "pdf_link": "https://arxiv.org/abs/2406.00434"
+    "pdf_link": "https://arxiv.org/pdf/2406.00434"
   },
   {
     "title": "[ECCVW '24] Optimizing Dynamic NeRF and 3DGS with No Video Synchronization",
@@ -405,7 +405,7 @@
   },
   {
     "title": "[3DV '24] Dynamic 3D Gaussians: Tracking by Persistent Dynamic View Synthesis",
-    "pdf_link": "https://dynamic3dgaussians.github.io/paper.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2308.09713.pdf"
   },
   {
     "title": "[CVPR '24] Deformable 3D Gaussians for High-Fidelity Monocular Dynamic Scene Reconstruction",
@@ -433,7 +433,7 @@
   },
   {
     "title": "[CVPR '24] SC-GS: Sparse-Controlled Gaussian Splatting for Editable Dynamic Scenes",
-    "pdf_link": "https://yihua7.github.io/SC-GS-web/materials/SC_GS_Arxiv.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2312.14937"
   },
   {
     "title": "[CVPR '24] Neural Parametric Gaussians for Monocular Non-Rigid Object Reconstruction",
@@ -469,7 +469,7 @@
   },
   {
     "title": "Contrastive Gaussian Clustering: Weakly Supervised 3D Scene Segmentation",
-    "pdf_link": "https://arxiv.org/abs/2404.12784"
+    "pdf_link": "https://arxiv.org/pdf/2404.12784"
   },
   {
     "title": "CoSSegGaussians: Compact and Swift Scene Segmenting 3D Gaussians",
@@ -537,7 +537,15 @@
   },
   {
     "title": "Segment Any 3D Gaussians",
-    "pdf_link": "https://jumpat.github.io/SAGA/SAGA_paper.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2312.00860"
+  },
+  {
+    "title": "Segment Any 4D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2407.04504"
+  },
+  {
+    "title": "Click-Gaussian: Interactive Segmentation to Any 3D Gaussians",
+    "pdf_link": "https://arxiv.org/pdf/2407.11793"
   },
   {
     "title": "[CVPR '24] Feature 3DGS: Supercharging 3D Gaussian Splatting to Enable Distilled Feature Fields",
@@ -565,7 +573,7 @@
   },
   {
     "title": "Rethinking Open-Vocabulary Segmentation of Radiance Fields in 3D Space",
-    "pdf_link": "https://arxiv.org/abs/2408.07416"
+    "pdf_link": "https://arxiv.org/pdf/2408.07416"
   },
   {
     "title": "Gaussian Splashing: Dynamic Fluid Synthesis with Gaussian Splatting",
@@ -605,11 +613,11 @@
   },
   {
     "title": "Trim 3D Gaussian Splatting for Accurate Geometry Representation",
-    "pdf_link": "https://arxiv.org/abs/2406.07499"
+    "pdf_link": "https://arxiv.org/pdf/2406.07499"
   },
   {
     "title": "Effective Rank Analysis and Regularization for Enhanced 3D Gaussian Splatting",
-    "pdf_link": "https://arxiv.org/abs/2406.11672"
+    "pdf_link": "https://arxiv.org/pdf/2406.11672"
   },
   {
     "title": "[CVPR '24] PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics",
@@ -717,7 +725,7 @@
   },
   {
     "title": "Adversarial Generation of Hierarchical Gaussians for 3d Generative Model",
-    "pdf_link": "https://arxiv.org/abs/2406.02968"
+    "pdf_link": "https://arxiv.org/pdf/2406.02968"
   },
   {
     "title": "[ECCV '24] FisherRF: Active View Selection and Uncertainty Quantification for Radiance Fields using Fisher Information",
@@ -1021,7 +1029,7 @@
   },
   {
     "title": "RTG-SLAM: Real-time 3D Reconstruction at Scale using Gaussian Splatting",
-    "pdf_link": "https://arxiv.org/abs/2404.19706"
+    "pdf_link": "https://arxiv.org/pdf/2404.19706"
   },
   {
     "title": "[CVPR '24] GS-SLAM: Dense Visual SLAM with 3D Gaussian Splatting",
@@ -1037,7 +1045,7 @@
   },
   {
     "title": "Gaussian-SLAM: Photo-realistic Dense SLAM with Gaussian Splatting",
-    "pdf_link": "https://ivi.fnwi.uva.nl/cv/paper/GaussianSLAM.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2312.10070"
   },
   {
     "title": "[CVPR '24] Photo-SLAM: Real-time Simultaneous Localization and Photorealistic Mapping for Monocular, Stereo, and RGB-D Cameras",
@@ -1121,7 +1129,7 @@
   },
   {
     "title": "BEINGS: Bayesian Embodied Image-goal Navigation with Gaussian Splatting",
-    "pdf_link": "https://arxiv.org/abs/2409.10216"
+    "pdf_link": "https://arxiv.org/pdf/2409.10216"
   },
   {
     "title": "GGRt: Towards Generalizable 3D Gaussians without Pose Priors in Real-Time",
@@ -1157,6 +1165,6 @@
   },
   {
     "title": "On Scaling Up 3D Gaussian Splatting Training",
-    "pdf_link": "https://arxiv.org/abs/2406.18533"
+    "pdf_link": "https://arxiv.org/pdf/2406.18533"
   }
 ]
