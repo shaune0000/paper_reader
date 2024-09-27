@@ -57,9 +57,15 @@ def json_to_md(json_content, pdf_link):
 import re
 
 def extract_id_from_pdf_link(pdf_link):
-    match = re.search(r'/(\d+\.\d+)\.pdf$', pdf_link)
+    # 嘗試匹配 /NNNN.NNNNN 格式，不限於 .pdf 結尾
+    match = re.search(r'/(\d+\.\d+)(?:\.pdf)?(?:\?|$)', pdf_link)
+    if match:
+        return match.group(1)
+    
+    # 如果上面的匹配失敗，嘗試匹配最後一個斜槓後的數字（不包括文件擴展名）
+    match = re.search(r'/(\d+)(?:\.\w+)?(?:\?|$)', pdf_link)
     return match.group(1) if match else None
-
+    
 def write_md_file(paper_id, md_content):
     # 確保 ./md/ 目錄存在
     os.makedirs('./md', exist_ok=True)
@@ -125,6 +131,7 @@ def read_paper(zulip, papers_data):
     
         md_files = []
         for paper in papers_data:
+            logger.info(f'start to read paper: {paper['title']}')
 
             paper_id = extract_id_from_pdf_link(paper['pdf_link'])
                         
