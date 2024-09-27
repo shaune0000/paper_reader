@@ -773,7 +773,7 @@
   },
   {
     "title": "3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt",
-    "pdf_link": "https://lukashoel.github.io/3DGS-LM/static/3DGS-LM_paper.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2409.12892"
   },
   {
     "title": "[CVPRW '24] Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images",
@@ -928,6 +928,10 @@
     "pdf_link": "https://jaewoong.org/pubs/asplos24-gscore.pdf"
   },
   {
+    "title": "GaRField++: Reinforced Gaussian Radiance Fields for Large-Scale 3D Scene Reconstruction",
+    "pdf_link": "https://arxiv.org/pdf/2409.12774v2"
+  },
+  {
     "title": "Mip-Splatting Alias-free 3D Gaussian Splatting",
     "pdf_link": "https://arxiv.org/pdf/2311.16493.pdf"
   },
@@ -1041,7 +1045,7 @@
   },
   {
     "title": "[CVPR '24] Gaussian Splatting SLAM",
-    "pdf_link": "https://www.imperial.ac.uk/media/imperial-college/research-centres-and-groups/dyson-robotics-lab/hide-et-al_GaussianSplattingSLAM_Dec2023.pdf"
+    "pdf_link": "https://arxiv.org/pdf/2312.06741"
   },
   {
     "title": "Gaussian-SLAM: Photo-realistic Dense SLAM with Gaussian Splatting",
