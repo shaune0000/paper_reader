@@ -34,10 +34,11 @@ def download_pdf(url, filename):
     if response.status_code == 200:
         with open(filename, 'wb') as f:
             f.write(response.content)
-        print(f"Downloaded: {filename}")
+        logger.info(f"Downloaded: {filename}")
     else:
-        print(f"Failed to download: {url}")
-        return ''
+        error_message = f"Failed to download: {url}. Status code: {response.status_code}"
+        logger.error(error_message)
+        raise Exception(error_message)
 
     return filename
 
