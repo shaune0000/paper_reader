@@ -136,19 +136,22 @@ def update_paper(zulip):
         for paper in json_output['papers']:
             existing_paper = get_paper(conn, paper['id'])
             if not existing_paper:
-                texts, docs = load_paper(f"./paper_pdf/{paper['id']}.pdf")
-                llm_res = sumarize_paper(texts, docs, paper['title'])
-                logger.info(json.dumps(llm_res, ensure_ascii=False))
-                print(llm_res)
-                res = json_to_md(llm_res, paper['link'], paper['pdf_link'])
+                try:
+                    texts, docs = load_paper(f"./paper_pdf/{paper['id']}.pdf")
+                    llm_res = sumarize_paper(texts, docs, paper['title'])
+                    logger.info(json.dumps(llm_res, ensure_ascii=False))
+                    print(llm_res)
+                    res = json_to_md(llm_res, paper['link'], paper['pdf_link'])
 
-                paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
-                zulip_topic = f'{json_output["date"]} {llm_res["短標題"]}'
-                if zulip:
-                    post_to_zulip(zulip_topic, res)
-                paper['zulip_topic'] = zulip_topic
-                
-                insert_paper(conn, paper)
+                    paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
+                    zulip_topic = f'{json_output["date"]} {llm_res["短標題"]}'
+                    if zulip:
+                        post_to_zulip(zulip_topic, res)
+                    paper['zulip_topic'] = zulip_topic
+                    
+                    insert_paper(conn, paper)
+                except:
+                    logger.error(f'failed to extract paper')
         
 if __name__ == "__main__":
 

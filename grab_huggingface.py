@@ -3,6 +3,7 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from datetime import date, datetime, timedelta, timezone
+import time
 from urllib.parse import urlparse
 import requests
 import logging, hashlib
@@ -47,13 +48,21 @@ def download_pdf(url, filename):
         logger.info(f'pdf已存在: {filename}')
         return filename
     
-    response = requests.get(url)
-    if response.status_code == 200:
-        with open(filename, 'wb') as f:
-            f.write(response.content)
-        print(f"Downloaded: {filename}")
-    else:
-        print(f"Failed to download: {url}")
+    status_code = 0
+    retry = 0
+    while status_code != 200 or retry > 10:
+        response = requests.get(url)
+        status_code = response.status_code
+        if status_code == 200:
+            with open(filename, 'wb') as f:
+                f.write(response.content)
+            print(f"Downloaded: {filename}")
+        else:
+            print(f"Failed to download: {url} with status: {status_code}")
+            retry += 1
+            time.sleep(1)
+    
+    if status_code != 200 and retry > 10:
         return ''
 
     return filename
