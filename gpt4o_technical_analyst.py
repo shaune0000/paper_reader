@@ -26,6 +26,7 @@ import logging
 import warnings
 import re
 import json
+import sys
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -33,15 +34,33 @@ load_dotenv()
 logger = logging.getLogger("Huggingface daily papers")
 
 
+# 驗證必要的環境變數
+required_env_vars = ['OPENAI_API_KEY', 'OPENAI_ORG_ID']
+missing_vars = [var for var in required_env_vars if var not in os.environ or not os.environ[var]]
+
+if missing_vars:
+    error_msg = f'Missing required environment variables: {", ".join(missing_vars)}'
+    logger.error(error_msg)
+    logger.error('Please create a .env file with the following variables:')
+    for var in missing_vars:
+        logger.error(f'  {var}=your_{var.lower()}_here')
+    sys.exit(1)
+
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 OPENAI_ORG_ID = os.environ['OPENAI_ORG_ID']
+logger.info('Environment variables loaded successfully')
 
-client = OpenAI(organization=OPENAI_ORG_ID)
-llm = ChatOpenAI(
-    temperature=0,
-    openai_api_key=OPENAI_API_KEY,
-    model_name="gpt-4o-mini",
-)
+try:
+    client = OpenAI(organization=OPENAI_ORG_ID)
+    llm = ChatOpenAI(
+        temperature=0,
+        openai_api_key=OPENAI_API_KEY,
+        model_name="gpt-4o-mini",
+    )
+    logger.info('OpenAI client initialized successfully')
+except Exception as e:
+    logger.error(f'Failed to initialize OpenAI client: {type(e).__name__} - {e}')
+    sys.exit(1)
 
 class Transcription(BaseModel):
     title_hook: str = Field(description="shorten title in 40 characters.")

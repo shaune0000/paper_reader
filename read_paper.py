@@ -177,32 +177,72 @@ def read_paper(zulip, papers_data):
                     # 寫入 Markdown 文件
                     md_file = write_md_file(paper_id, md_content)
 
-                    paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
+                    paper['summary'] = json.dumps(llm_res, ensure_ascii=False)
                     zulip_topic = f'{llm_res["短標題"]}'
                     if zulip:
                         post_to_zulip(zulip_topic, md_content)
                     paper['zulip_topic'] = zulip_topic
-                    
+
                     insert_paper(conn, paper)
 
                     md_files.append(md_file)
-                except Exception as e:
-                    write_error(
-                        {
-                            "message": f"讀取檔案錯誤: {e}",
-                            "pdf_link": paper['pdf_link'],
-                            "title": paper['title'],
-                            "file_path": paper['local_pdf']
-                        }
-                    )
-                    # 嘗試刪除本地 PDF 文件
+                    logger.info(f"Successfully processed paper: {paper_id}")
+                except FileNotFoundError as e:
+                    error_msg = f"PDF 文件不存在: {pdf_filename}"
+                    logger.error(f"{error_msg} - {e}")
+                    write_error({
+                        "error_type": "FileNotFoundError",
+                        "message": error_msg,
+                        "pdf_link": paper['pdf_link'],
+                        "title": paper.get('title', 'Unknown'),
+                        "file_path": paper.get('local_pdf', 'Unknown')
+                    })
+                except KeyError as e:
+                    error_msg = f"缺少必要欄位 {e}"
+                    logger.error(f"Paper {paper_id}: {error_msg}")
+                    write_error({
+                        "error_type": "KeyError",
+                        "message": error_msg,
+                        "pdf_link": paper.get('pdf_link', 'Unknown'),
+                        "title": paper.get('title', 'Unknown'),
+                        "file_path": paper.get('local_pdf', 'Unknown')
+                    })
+                except ValueError as e:
+                    error_msg = f"資料格式錯誤: {e}"
+                    logger.error(f"Paper {paper_id}: {error_msg}")
+                    write_error({
+                        "error_type": "ValueError",
+                        "message": error_msg,
+                        "pdf_link": paper.get('pdf_link', 'Unknown'),
+                        "title": paper.get('title', 'Unknown'),
+                        "file_path": paper.get('local_pdf', 'Unknown')
+                    })
+                    # 嘗試刪除可能損壞的 PDF 文件
                     try:
-                        if os.path.exists(paper['local_pdf']):
+                        if os.path.exists(paper.get('local_pdf', '')):
+                            os.remove(paper['local_pdf'])
+                            logger.info(f"已刪除損壞的 PDF 文件: {paper['local_pdf']}")
+                    except Exception as delete_error:
+                        logger.error(f"無法刪除 PDF 文件 {paper.get('local_pdf', 'Unknown')}: {delete_error}")
+                except Exception as e:
+                    error_msg = f"處理論文時發生未預期的錯誤: {type(e).__name__} - {e}"
+                    logger.error(f"Paper {paper_id}: {error_msg}")
+                    logger.exception("Full traceback:")
+                    write_error({
+                        "error_type": type(e).__name__,
+                        "message": error_msg,
+                        "pdf_link": paper.get('pdf_link', 'Unknown'),
+                        "title": paper.get('title', 'Unknown'),
+                        "file_path": paper.get('local_pdf', 'Unknown')
+                    })
+                    # 嘗試刪除可能有問題的 PDF 文件
+                    try:
+                        if os.path.exists(paper.get('local_pdf', '')):
                             os.remove(paper['local_pdf'])
                             logger.info(f"已刪除錯誤的 PDF 文件: {paper['local_pdf']}")
                     except Exception as delete_error:
-                        logger.error(f"無法刪除錯誤的 PDF 文件 {paper['local_pdf']}: {delete_error}")
-                                        
+                        logger.error(f"無法刪除 PDF 文件 {paper.get('local_pdf', 'Unknown')}: {delete_error}")
+
                     continue
 
 

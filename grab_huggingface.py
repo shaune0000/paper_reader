@@ -47,22 +47,33 @@ def download_pdf(url, filename):
     if os.path.exists(filename):
         logger.info(f'pdf已存在: {filename}')
         return filename
-    
+
     status_code = 0
     retry = 0
-    while status_code != 200 or retry > 10:
-        response = requests.get(url)
-        status_code = response.status_code
-        if status_code == 200:
-            with open(filename, 'wb') as f:
-                f.write(response.content)
-            print(f"Downloaded: {filename}")
-        else:
-            print(f"Failed to download: {url} with status: {status_code}")
+    max_retries = 10
+
+    while status_code != 200 and retry < max_retries:
+        try:
+            response = requests.get(url, timeout=30)
+            status_code = response.status_code
+            if status_code == 200:
+                with open(filename, 'wb') as f:
+                    f.write(response.content)
+                logger.info(f"Downloaded: {filename}")
+                return filename
+            else:
+                logger.warning(f"Failed to download: {url} with status: {status_code} (attempt {retry + 1}/{max_retries})")
+                retry += 1
+                if retry < max_retries:
+                    time.sleep(1)
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Download error for {url}: {e} (attempt {retry + 1}/{max_retries})")
             retry += 1
-            time.sleep(1)
-    
-    if status_code != 200 and retry > 10:
+            if retry < max_retries:
+                time.sleep(1)
+
+    if status_code != 200:
+        logger.error(f"Failed to download {url} after {max_retries} attempts")
         return ''
 
     return filename

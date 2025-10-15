@@ -8,26 +8,63 @@ import re
 
 logger = logging.getLogger("Huggingface daily papers")
 
+# 初始化 Zulip 客戶端
+zulip_client = None
+
 try:
     zulip_client = zulip.Client(config_file=".zuliprc")
-except:
-    logger.error('zulip service down')
+    logger.info('Zulip client initialized successfully')
+except FileNotFoundError:
+    logger.error('Zulip config file .zuliprc not found')
+except Exception as e:
+    logger.error(f'Failed to initialize Zulip client: {type(e).__name__} - {e}')
 
 def post_to_zulip(topic, content):
-    request = {
-            "type": "stream",
-            "to": "Paper_Reader",
-            "topic": topic,
-            "content": content,
-        }
+    """
+    發送訊息到 Zulip stream
 
-    result = zulip_client.send_message(request)
-    logger.info(f'[zulip] message sent: {result}')
+    Args:
+        topic: 主題名稱
+        content: 訊息內容
+
+    Returns:
+        發送結果或 None（若客戶端不可用）
+    """
+    if zulip_client is None:
+        logger.warning('Zulip client not available, skipping message post')
+        return None
+
+    request = {
+        "type": "stream",
+        "to": "Paper_Reader",
+        "topic": topic,
+        "content": content,
+    }
+
+    try:
+        result = zulip_client.send_message(request)
+        logger.info(f'[zulip] message sent: {result}')
+        return result
+    except Exception as e:
+        logger.error(f'Failed to send message to Zulip: {type(e).__name__} - {e}')
+        return None
 
 
 def handle_zulip_messages():
+    """
+    啟動 Zulip 訊息處理執行緒
+    """
+    if zulip_client is None:
+        logger.error('Cannot handle Zulip messages: client not initialized')
+        return
+
     last_message_time = datetime.now(timezone.utc)
-    bot_email = zulip_client.email
+
+    try:
+        bot_email = zulip_client.email
+    except Exception as e:
+        logger.error(f'Failed to get bot email: {e}')
+        return
 
     def on_message(msg):
         nonlocal last_message_time
@@ -94,13 +131,21 @@ def handle_zulip_messages():
                 quoted_content = f"@_**{sender_full_name}** 問道：\n```quote\n{new_question}\n```\n\n{response}"
 
                 # 发送引用回复
-                zulip_client.send_message({
-                    "type": "stream",
-                    "to": stream_name,
-                    "subject": topic,
-                    "content": quoted_content,
-                    "reply_to": message_id,  # 指定回复的消息ID
-                })                
+                try:
+                    zulip_client.send_message({
+                        "type": "stream",
+                        "to": stream_name,
+                        "subject": topic,
+                        "content": quoted_content,
+                        "reply_to": message_id,  # 指定回复的消息ID
+                    })
+                    logger.info(f'Successfully replied to question in topic: {topic}')
+                except Exception as e:
+                    logger.error(f'Failed to send reply to Zulip: {type(e).__name__} - {e}')
 
-    thread = threading.Thread(target=zulip_client.call_on_each_message, args=(on_message,))
-    thread.start()
+    try:
+        thread = threading.Thread(target=zulip_client.call_on_each_message, args=(on_message,), daemon=True)
+        thread.start()
+        logger.info('Zulip message handler thread started successfully')
+    except Exception as e:
+        logger.error(f'Failed to start Zulip message handler thread: {type(e).__name__} - {e}')

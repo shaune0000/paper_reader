@@ -59,8 +59,24 @@ def seconds_to_midnight():
     return (next_midnight - now).total_seconds()
 
 def random_sleep():
-    sleep_time = random.randint(1800, 3600)  # 30分钟到1小时之间的随机时间
-    logger.info(f"Sleeping for {sleep_time} seconds before next update.")
+    """
+    隨機睡眠，從環境變數讀取睡眠時間範圍
+    預設：30-60 分鐘
+    """
+    # 從環境變數讀取，預設 30-60 分鐘（1800-3600 秒）
+    min_sleep = int(os.getenv('MIN_SLEEP_SECONDS', '1800'))
+    max_sleep = int(os.getenv('MAX_SLEEP_SECONDS', '3600'))
+
+    # 驗證範圍合理性
+    if min_sleep < 0 or max_sleep < 0:
+        logger.warning(f'Invalid sleep time range ({min_sleep}-{max_sleep}), using default (1800-3600)')
+        min_sleep, max_sleep = 1800, 3600
+    if min_sleep > max_sleep:
+        logger.warning(f'MIN_SLEEP_SECONDS ({min_sleep}) > MAX_SLEEP_SECONDS ({max_sleep}), swapping values')
+        min_sleep, max_sleep = max_sleep, min_sleep
+
+    sleep_time = random.randint(min_sleep, max_sleep)
+    logger.info(f"Sleeping for {sleep_time} seconds ({sleep_time//60} minutes) before next update.")
     time.sleep(sleep_time)
 
 def json_to_md(json_content, link, pdf_link):
@@ -136,22 +152,36 @@ def update_paper(zulip):
         for paper in json_output['papers']:
             existing_paper = get_paper(conn, paper['id'])
             if not existing_paper:
+                paper_id = paper.get('id', 'unknown')
                 try:
-                    texts, docs = load_paper(f"./paper_pdf/{paper['id']}.pdf")
+                    pdf_path = f"./paper_pdf/{paper_id}.pdf"
+                    if not os.path.exists(pdf_path):
+                        logger.error(f"PDF file not found for paper {paper_id}: {pdf_path}")
+                        continue
+
+                    texts, docs = load_paper(pdf_path)
                     llm_res = sumarize_paper(texts, docs, paper['title'])
                     logger.info(json.dumps(llm_res, ensure_ascii=False))
                     print(llm_res)
                     res = json_to_md(llm_res, paper['link'], paper['pdf_link'])
 
-                    paper['summary'] = json.dumps(llm_res, ensure_ascii=False)                
+                    paper['summary'] = json.dumps(llm_res, ensure_ascii=False)
                     zulip_topic = f'{json_output["date"]} {llm_res["短標題"]}'
                     if zulip:
                         post_to_zulip(zulip_topic, res)
                     paper['zulip_topic'] = zulip_topic
-                    
+
                     insert_paper(conn, paper)
-                except:
-                    logger.error(f'failed to extract paper')
+                    logger.info(f"Successfully processed paper: {paper_id}")
+                except FileNotFoundError as e:
+                    logger.error(f"PDF file not found for paper {paper_id}: {e}")
+                except KeyError as e:
+                    logger.error(f"Missing required field for paper {paper_id}: {e}")
+                except ValueError as e:
+                    logger.error(f"Invalid data format for paper {paper_id}: {e}")
+                except Exception as e:
+                    logger.error(f"Failed to process paper {paper_id}: {type(e).__name__} - {e}")
+                    logger.exception("Full traceback:")
         
 if __name__ == "__main__":
 
