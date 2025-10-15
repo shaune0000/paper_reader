@@ -1,6 +1,9 @@
 import sqlite3
 from datetime import datetime
 from contextlib import contextmanager
+import logging
+
+logger = logging.getLogger("Huggingface daily papers")
 
 
 '''
@@ -15,7 +18,37 @@ def create_connection():
     finally:
         conn.close()
 
+def check_column_exists(cursor, table_name, column_name):
+    """檢查欄位是否存在"""
+    cursor.execute(f"PRAGMA table_info({table_name})")
+    columns = [row[1] for row in cursor.fetchall()]
+    return column_name in columns
+
+def migrate_if_needed(conn):
+    """如果需要，自動執行資料庫遷移"""
+    cursor = conn.cursor()
+
+    # 檢查表是否存在
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='papers'")
+    if not cursor.fetchone():
+        return  # 表不存在，將由 create_table 創建
+
+    # 檢查並新增缺少的欄位
+    migrations = [
+        ('status', "ALTER TABLE papers ADD COLUMN status TEXT DEFAULT 'completed'"),
+        ('error_message', "ALTER TABLE papers ADD COLUMN error_message TEXT"),
+        ('retry_count', "ALTER TABLE papers ADD COLUMN retry_count INTEGER DEFAULT 0")
+    ]
+
+    for column_name, sql in migrations:
+        if not check_column_exists(cursor, 'papers', column_name):
+            logger.info(f"Migrating database: adding '{column_name}' column")
+            cursor.execute(sql)
+
+    conn.commit()
+
 def create_table(conn):
+    migrate_if_needed(conn)  # 先執行遷移
     cursor = conn.cursor()
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS papers (
