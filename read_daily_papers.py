@@ -13,7 +13,7 @@ from gpt4o_technical_analyst import sumarize_paper, load_paper
 from database import create_connection, create_table, insert_paper, get_paper
 from zulip_handler import post_to_zulip, handle_zulip_messages
 
-# 
+#
 # logger init
 #
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -22,15 +22,26 @@ Path(log_dir_path).mkdir(parents=True, exist_ok=True)
 logname = log_dir_path+"/daily_papers.log"
 
 logger = logging.getLogger("Huggingface daily papers")
-logger.setLevel(logging.INFO)    
+logger.setLevel(logging.INFO)
+
+# 清除現有的 handlers（避免重複）
+if logger.handlers:
+    logger.handlers.clear()
 
 formatter = logging.Formatter('%(asctime)s|%(name)s|%(levelname)s|%(message)s')
-rh = TimedRotatingFileHandler(logname, when='midnight', interval=1)
-rh.setLevel(logging.INFO)
-rh.suffix = "%Y%m%d"
-#TimedRotatingFileHandler对象自定义日志格式
-rh.setFormatter(formatter)
-logger.addHandler(rh)    #logger日志对象加载TimedRotatingFileHandler对象
+
+# 文件處理器 - 記錄到檔案
+file_handler = TimedRotatingFileHandler(logname, when='midnight', interval=1)
+file_handler.setLevel(logging.INFO)
+file_handler.suffix = "%Y%m%d"
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+# Console 處理器 - 同時輸出到終端
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
 
 
 '''
@@ -137,15 +148,34 @@ def json_to_md(json_content, link, pdf_link):
 #     return system_json
 
 def update_paper(zulip):
+    """
+    更新論文：從 Hugging Face 抓取、解析、處理論文
+
+    Args:
+        zulip: 是否發送到 Zulip
+    """
     with create_connection() as conn:
-    
+
         create_table(conn)
-    
-        raw_text, _, hash = fetch_huggingface_dailypapers()    
-        json_output, _ = parse_data_to_json(raw_text, hash)
-        # with open('./huggingface_dailypaper/2024-07-30-huggingface_papers-15d3e0242235caf391dfb98edac8c34a2b105aeba6bd8730f580fc2db43242d4.json') as f:
-        #     json_output = json.load(f)
-        #     print(json_output['date'])
+
+        raw_text, _, hash = fetch_huggingface_dailypapers()
+
+        # 檢查是否成功獲取資料
+        if raw_text is None or hash is None:
+            logger.error("Failed to fetch data from Hugging Face, skipping this update cycle")
+            return
+
+        try:
+            json_output, _ = parse_data_to_json(raw_text, hash)
+        except Exception as e:
+            logger.error(f"Failed to parse Hugging Face data: {type(e).__name__} - {e}")
+            logger.exception("Full traceback:")
+            return
+
+        # 檢查解析結果
+        if not json_output or 'papers' not in json_output:
+            logger.error("No papers found in parsed data")
+            return
 
         logger.info(f'update huggingface: {json_output["date"]} with papers: {len(json_output.get("papers", []))}')
 
@@ -199,8 +229,22 @@ if __name__ == "__main__":
         handle_zulip_messages()
 
     while True:
-        
-        update_paper(args.zulip)
-        logger.info('sleep for next update')
-        random_sleep()
+        try:
+            update_paper(args.zulip)
+            logger.info('Update cycle completed successfully')
+        except KeyboardInterrupt:
+            logger.info("Received keyboard interrupt, shutting down gracefully...")
+            break
+        except Exception as e:
+            logger.error(f"Error in update cycle: {type(e).__name__} - {e}")
+            logger.exception("Full traceback:")
+            logger.info("Continuing to next update cycle after error...")
+
+        logger.info('Sleeping for next update')
+        try:
+            random_sleep()
+        except Exception as e:
+            logger.error(f"Error during sleep: {type(e).__name__} - {e}")
+            logger.info("Using default sleep time...")
+            time.sleep(1800)  # 預設 30 分鐘
 

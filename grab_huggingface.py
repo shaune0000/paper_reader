@@ -19,27 +19,45 @@ if not os.path.exists('./paper_pdf'):
     os.mkdir('./paper_pdf')
 
 def fetch_huggingface_dailypapers(url = "https://huggingface.co/papers"):
+    """
+    從 Hugging Face 抓取每日論文頁面
 
+    Returns:
+        tuple: (raw_text, output_file, hash) 或 (None, None, None) 如果失敗
+    """
     t = date.today()
-    output_file = f"./huggingface_dailypaper/{t}-huggingface_papers.txt"
+    output_file = None
+    raw_text = None
+    hash = None
 
-    # Send a GET request to the URL
-    response = requests.get(url)
+    try:
+        # Send a GET request to the URL
+        response = requests.get(url, timeout=30)
 
-    # Check if the request was successful
-    if response.status_code == 200:
-        # Get the raw text content
-        raw_text = response.text
-        
-        hash = hashlib.sha256(raw_text.encode("utf-8")).hexdigest()
-        output_file = f"./huggingface_dailypaper/{t}-huggingface_papers-{hash}.txt"
-        # Save the raw text to a file
-        with open(output_file, 'w', encoding='utf-8') as file:
-            file.write(raw_text)
-        
-        print(f"Raw text content has been saved to {output_file}")
-    else:
-        print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
+        # Check if the request was successful
+        if response.status_code == 200:
+            # Get the raw text content
+            raw_text = response.text
+
+            hash = hashlib.sha256(raw_text.encode("utf-8")).hexdigest()
+            output_file = f"./huggingface_dailypaper/{t}-huggingface_papers-{hash}.txt"
+            # Save the raw text to a file
+            with open(output_file, 'w', encoding='utf-8') as file:
+                file.write(raw_text)
+
+            logger.info(f"Raw text content has been saved to {output_file}")
+        else:
+            logger.error(f"Failed to retrieve the webpage. Status code: {response.status_code}")
+
+    except requests.exceptions.Timeout:
+        logger.error(f"Timeout while fetching {url}")
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Request error while fetching {url}: {e}")
+    except IOError as e:
+        logger.error(f"Failed to write file {output_file}: {e}")
+    except Exception as e:
+        logger.error(f"Unexpected error in fetch_huggingface_dailypapers: {type(e).__name__} - {e}")
+        logger.exception("Full traceback:")
 
     return raw_text, output_file, hash
 

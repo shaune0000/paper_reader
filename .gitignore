@@ -17,4 +17,4 @@ zulip
 read_paper.json
 .zuliprc
 
-md
+md*.backup_*
