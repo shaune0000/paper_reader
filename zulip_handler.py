@@ -5,6 +5,7 @@ import logging
 import zulip
 from datetime import datetime, timezone
 import re
+import os
 
 logger = logging.getLogger("Huggingface daily papers")
 
@@ -12,12 +13,22 @@ logger = logging.getLogger("Huggingface daily papers")
 zulip_client = None
 
 try:
-    zulip_client = zulip.Client(config_file=".zuliprc")
+    # 從環境變數讀取是否禁用 SSL 驗證（用於自簽名證書）
+    insecure_ssl = os.getenv('ZULIP_INSECURE_SSL', 'false').lower() == 'true'
+
+    if insecure_ssl:
+        logger.warning('⚠️  SSL verification disabled for Zulip client (ZULIP_INSECURE_SSL=true)')
+        logger.warning('⚠️  This is INSECURE and should only be used for development/testing')
+        zulip_client = zulip.Client(config_file=".zuliprc", insecure=True)
+    else:
+        zulip_client = zulip.Client(config_file=".zuliprc")
+
     logger.info('Zulip client initialized successfully')
 except FileNotFoundError:
     logger.error('Zulip config file .zuliprc not found')
 except Exception as e:
     logger.error(f'Failed to initialize Zulip client: {type(e).__name__} - {e}')
+    logger.error('Hint: If using self-signed SSL certificate, set ZULIP_INSECURE_SSL=true in .env')
 
 def post_to_zulip(topic, content):
     """
@@ -143,8 +154,29 @@ def handle_zulip_messages():
                 except Exception as e:
                     logger.error(f'Failed to send reply to Zulip: {type(e).__name__} - {e}')
 
+    def message_handler_wrapper():
+        """
+        包裝 call_on_each_message 以處理 SSL 和網路錯誤
+        """
+        import time
+
+        while True:
+            try:
+                logger.info('Starting Zulip message handler...')
+                zulip_client.call_on_each_message(on_message)
+            except zulip.UnrecoverableNetworkError as e:
+                logger.error(f'Zulip UnrecoverableNetworkError: {e}')
+                logger.error('Hint: Check ZULIP_INSECURE_SSL setting if using self-signed certificate')
+                logger.info('Retrying in 60 seconds...')
+                time.sleep(60)
+            except Exception as e:
+                logger.error(f'Error in Zulip message handler: {type(e).__name__} - {e}')
+                logger.exception('Full traceback:')
+                logger.info('Retrying in 60 seconds...')
+                time.sleep(60)
+
     try:
-        thread = threading.Thread(target=zulip_client.call_on_each_message, args=(on_message,), daemon=True)
+        thread = threading.Thread(target=message_handler_wrapper, daemon=True)
         thread.start()
         logger.info('Zulip message handler thread started successfully')
     except Exception as e:
